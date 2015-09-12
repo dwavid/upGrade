@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="upGrade">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+    <!--Styles-->
+    <link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+
+    <!--Scripts-->
+    <script src="../../assets/scripts/jquery.min.js"></script>
+    <script src="../../semantic/dist/semantic.min.js"></script>
+    <script src="../../node_modules/angular/angular.min.js"></script>
+    <script src="../../assets/scripts/app.js"></script>
+
+    <title>upGrade</title>
+</head>
+<body>
+<ng-include src="'../../common/navigation/sidebar-nav.html'"></ng-include>
+<div class="pusher">
+    <div class="header">
+        <div class="ui container">
+            <ng-include src="'../../common/navigation/top-menu.html'"></ng-include>
+        </div>
+    </div>
+    <div class="mainz">
+        <div ng-controller="MainController" class="ui container">
+            <div class="page-center small container">
+                <h1>Enter grade</h1>
+                <div class="ui fluid selection dropdown huge input item">
+                    <i class="dropdown icon"></i>
+                    <span class="default text">Assignment</span>
+                    <div class="menu">
+                        <div ng-repeat="assignment in assignments" class="item">
+                            {{assignment.title}}
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="ui fluid selection dropdown huge input item">
+                    <i class="dropdown icon"></i>
+                    <span class="default text">Student</span>
+                    <div class="menu">
+                        <div ng-repeat="student in students" class="item">
+                            {{student.fName + ' ' + student.lName}}
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="ui right labeled fluid massive input ginormous">
+                    <input type="text" placeholder=""/>
+                    <label class="ui label">/</label>
+                </div>
+                <br />
+                <div class="ui form">
+                    <div class="ui massive input fluid field">
+                        <textarea rows="2" placeholder="Comment"></textarea>
+                    </div>
+                </div>
+                <br />
+                <div class="ui fluid massive buttons">
+                    <button class="ui button">CANCEL</button>
+                    <div class="or"></div>
+                    <button class="ui teal button">SAVE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $('.ui.dropdown')
+            .dropdown()
+    ;
+</script>
+</html>

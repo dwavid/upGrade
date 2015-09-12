@@ -1,0 +1,56 @@
+.teal-text {
+  color: #00999a !important; }
+
+.menu-toggle:hover {
+  cursor: pointer; }
+
+.menu.overlay.sidebar {
+  z-index: 9;
+  font-size: 1.5em; }
+  .menu.overlay.sidebar .item:hover {
+    background: #efefef; }
+    .menu.overlay.sidebar .item:hover .icon {
+      color: #00999a; }
+
+.page-center {
+  margin-right: auto;
+  margin-left: auto; }
+
+.header {
+  background: #efefef;
+  width: 100%;
+  height: 60px; }
+  .header .logo {
+    font-size: 1.5em !important;
+    margin-top: .5em !important; }
+    .header .logo * {
+      color: #00999a !important;
+      text-decoration: none !important; }
+  .header .ui.text.menu .icon {
+    font-size: 1.5em; }
+
+.ui.text.menu {
+  margin-top: 0;
+  font-size: 1.5em; }
+
+.mainz {
+  text-align: center;
+  margin-top: 30px; }
+
+.small.container {
+  width: 95%;
+  max-width: 500px; }
+
+.fluid.dropdown {
+  width: 100%; }
+
+.ui.huge.dropdown .menu .item {
+  font-size: inherit; }
+
+.ui.massive.dropdown .menu .item {
+  font-size: inherit; }
+
+.ginormous {
+  font-size: 3em !important; }
+
+/*# sourceMappingURL=style.css.map */

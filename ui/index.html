@@ -1,20 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="upGrade">
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
 
     <!--Styles-->
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <!--Scripts-->
+    <script src="assets/scripts/jquery.min.js"></script>
     <script src="semantic/dist/semantic.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="assets/scripts/app.js"></script>
 
     <title>upGrade</title>
 </head>
 <body>
-    <h1>upGrade</h1>
-    <p>
-        Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
-    </p>
+<ng-include src="'common/navigation/sidebar-nav.html'"></ng-include>
+<div class="pusher">
+        <div class="header">
+            <div class="ui container">
+                <ng-include src="'common/navigation/top-menu.html'"></ng-include>
+            </div>
+        </div>
+        <div class="mainz">
+            <!-- TODO put an ngView up in this b-hatch!-->
+            <div class="ui container">
+                <div class="page-center small container">
+                    <h1>Where to?</h1>
+                    <a href="components/quick-entry/class-select.html" class="ui massive fluid button">
+                        Quick Input
+                    </a>
+                    <br />
+                    <a class="ui massive fluid button">
+                        Assignments
+                    </a>
+                    <br />
+                    <a class="ui massive fluid button">
+                        Reports
+                    </a>
+                    <br />
+                    <a class="ui massive fluid button">
+                        Analysis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

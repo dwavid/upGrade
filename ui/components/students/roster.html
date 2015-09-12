@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="upGrade">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+    <!--Styles-->
+    <link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+
+    <!--Scripts-->
+    <script src="../../assets/scripts/jquery.min.js"></script>
+    <script src="../../semantic/dist/semantic.min.js"></script>
+    <script src="../../node_modules/angular/angular.min.js"></script>
+    <script src="../../assets/scripts/app.js"></script>
+
+    <title>upGrade</title>
+</head>
+<body>
+<ng-include src="'../../common/navigation/sidebar-nav.html'"></ng-include>
+<div class="pusher">
+    <div class="header">
+        <div class="ui container">
+            <ng-include src="'../../common/navigation/top-menu.html'"></ng-include>
+        </div>
+    </div>
+    <div class="mainz" ng-controller="MainController">
+        <div class="ui container">
+            <table class="ui unstackable padded single line table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Student ID</th>
+                        <!--<th>Parent Contact</th>-->
+                        <th>GPA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="student in students">
+                        <td>{{student.lName + ', ' + student.fName}}</td>
+                        <td>{{student.studentID}}</td>
+                        <!--<td>{{student.parentContact}}</td>-->
+                        <td>{{student.gpa}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $('.ui.dropdown')
+            .dropdown()
+    ;
+</script>
+</html>

@@ -1,0 +1,79 @@
+//VARIABLES
+
+//Colors
+$teal: #008080;
+$lightTeal: lighten($teal, 5%);
+$gray: #b4b4b4;
+$lightGray: lighten($gray, 23%);
+
+//Measurements
+$header-height: 60px;
+
+.teal-text {
+  color: $lightTeal !important;
+}
+.menu-toggle:hover {
+  cursor: pointer;
+}
+.menu.overlay.sidebar {
+  z-index: 9;
+  font-size: 1.5em;
+  .item:hover {
+    background: $lightGray;
+    .icon {
+      color: $lightTeal;
+    }
+  }
+}
+.page-center {
+  margin-right: auto;
+  margin-left: auto;
+}
+.header {
+  background: $lightGray;
+  width: 100%;
+  height: $header-height;
+  .logo {
+    font-size: 1.5em !important;
+    margin-top: .5em !important;
+    * {
+      color: $lightTeal !important;
+      text-decoration: none !important;
+    }
+  }
+  .ui.text.menu .icon {
+    font-size: 1.5em;
+  }
+}
+.ui.text.menu {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+.mainz {
+  text-align: center;
+  margin-top: 30px;
+}
+.small.container {
+  width: 95%;
+  max-width: 500px;
+}
+.fluid.dropdown {
+  width: 100%;
+}
+.ui.huge.dropdown {
+  .menu {
+    .item {
+      font-size: inherit;
+    }
+  }
+}
+.ui.massive.dropdown {
+  .menu {
+    .item {
+      font-size: inherit;
+    }
+  }
+}
+.ginormous {
+  font-size: 3em !important;
+}
