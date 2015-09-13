@@ -1,61 +1,28 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="upGrade">
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width,initial-scale=1.0" name="viewport">
-
-    <!--Styles-->
-    <link rel="stylesheet" type="text/css" href="../../semantic/dist/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
-
-    <!--Scripts-->
-    <script src="../../assets/scripts/jquery.min.js"></script>
-    <script src="../../semantic/dist/semantic.min.js"></script>
-    <script src="../../node_modules/angular/angular.min.js"></script>
-    <script src="../../assets/scripts/app.js"></script>
-
-    <title>upGrade</title>
-</head>
-<body>
-<ng-include src="'../../common/navigation/sidebar-nav.html'"></ng-include>
-<div class="pusher">
-    <div class="header">
-        <div class="ui container">
-            <ng-include src="'../../common/navigation/top-menu.html'"></ng-include>
-        </div>
-    </div>
-    <div class="mainz">
-        <div class="ui container">
-            <div class="page-center small container">
-                <h1>Select class</h1>
-                <a href="" class="ui fluid massive button">
-                    Science
-                </a>
-                <br />
-                <a href="quick-entry.html" class="ui fluid massive button">
-                    Mathematics
-                </a>
-                <br />
-                <a href="" class="ui fluid massive button">
-                    Reading
-                </a>
-                <br />
-                <a href="" class="ui fluid massive button">
-                    Social Studies
-                </a>
-                <br />
-                <a href="" class="ui fluid massive button">
-                    Writing
-                </a>
-                <br />
-            </div>
-        </div>
-    </div>
+<div class="page-center small container">
+    <h1>Select class</h1>
+    <a href="" class="ui fluid massive button">
+        Science
+    </a>
+    <br />
+    <a href="#quick-entry" class="ui fluid massive button">
+        Mathematics
+    </a>
+    <br />
+    <a href="" class="ui fluid massive button">
+        Reading
+    </a>
+    <br />
+    <a href="" class="ui fluid massive button">
+        Social Studies
+    </a>
+    <br />
+    <a href="" class="ui fluid massive button">
+        Writing
+    </a>
+    <br />
 </div>
-</body>
 <script>
     $('.ui.dropdown')
             .dropdown()
     ;
 </script>
-</html>

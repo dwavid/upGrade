@@ -11,7 +11,8 @@
     <!--Scripts-->
     <script src="assets/scripts/jquery.min.js"></script>
     <script src="semantic/dist/semantic.min.js"></script>
-    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="assets/scripts/app.js"></script>
 
     <title>upGrade</title>
@@ -27,24 +28,7 @@
         <div class="mainz">
             <!-- TODO put an ngView up in this b-hatch!-->
             <div class="ui container">
-                <div class="page-center small container">
-                    <h1>Where to?</h1>
-                    <a href="components/quick-entry/class-select.html" class="ui massive fluid button">
-                        Quick Input
-                    </a>
-                    <br />
-                    <a class="ui massive fluid button">
-                        Assignments
-                    </a>
-                    <br />
-                    <a class="ui massive fluid button">
-                        Reports
-                    </a>
-                    <br />
-                    <a class="ui massive fluid button">
-                        Analysis
-                    </a>
-                </div>
+                <div ng-view></div>
             </div>
         </div>
     </div>

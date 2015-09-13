@@ -1,7 +1,38 @@
 /**
  * Created by dross on 9/5/15.
  */
-var app = angular.module('upGrade', []);
+'use strict';
+
+var app = angular.module('upGrade', ['ngRoute']);
+
+app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider
+
+        .when('/quick-entry', {
+            templateUrl: 'components/quick-entry/quick-entry.html',
+            controller: 'MainController'
+        })
+
+        .when('/class-select', {
+            templateUrl: 'components/quick-entry/class-select.html',
+            controller: 'MainController'
+        })
+
+        .when('/roster', {
+            templateUrl: 'components/students/roster.html',
+            controller: 'MainController'
+        })
+
+        .when('/quick-links', {
+            templateUrl: 'components/quick-links.html',
+            controller: 'MainController'
+        })
+
+        .otherwise({
+            redirectTo: '/quick-links'
+        });
+
+}]);
 
 app.controller('MainController', function($scope) {
     $scope.students =
