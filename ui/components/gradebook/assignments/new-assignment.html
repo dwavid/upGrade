@@ -1,0 +1,41 @@
+<div class="page-center small container">
+    <h1>New Assignment</h1>
+    <div class="ui fluid selection dropdown huge input item">
+        <i class="dropdown icon"></i>
+        <span class="default text">Type</span>
+        <div class="menu">
+            <div ng-repeat="type in assignments.types" class="item">
+                {{type.name | uppercase}}
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="ui fluid huge input item">
+        <input type="text" placeholder="Title" />
+    </div>
+    <br />
+    <div class="ui fluid huge input item">
+        <input type="number" placeholder="Total" />
+    </div>
+    <br />
+    <div class="ui fluid huge input item">
+        <input type="date" placeholder="Due date" />
+    </div>
+    <br />
+    <div class="ui form">
+        <div class="ui huge input fluid field">
+            <textarea rows="2" placeholder="Description"></textarea>
+        </div>
+    </div>
+    <br />
+    <div class="ui fluid huge buttons">
+        <button class="ui button">CANCEL</button>
+        <div class="or"></div>
+        <button class="ui teal button">SAVE</button>
+    </div>
+</div>
+<script>
+    $('.ui.dropdown')
+            .dropdown()
+    ;
+</script>

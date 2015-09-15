@@ -9,12 +9,12 @@ app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
 
         .when('/quick-entry', {
-            templateUrl: 'components/quick-entry/quick-entry.html',
+            templateUrl: 'components/gradebook/quick-entry/quick-entry.html',
             controller: 'MainController'
         })
 
         .when('/class-select', {
-            templateUrl: 'components/quick-entry/class-select.html',
+            templateUrl: 'components/gradebook/quick-entry/class-select.html',
             controller: 'MainController'
         })
 
@@ -25,6 +25,21 @@ app.config(['$routeProvider', function($routeProvider) {
 
         .when('/quick-links', {
             templateUrl: 'components/quick-links.html',
+            controller: 'MainController'
+        })
+
+        .when('/all-assignments', {
+            templateUrl: 'components/gradebook/assignments/all-assignments.html',
+            controller: 'MainController'
+        })
+
+        .when('/new-assignment', {
+            templateUrl: 'components/gradebook/assignments/new-assignment.html',
+            controller: 'MainController'
+        })
+
+        .when('/gradebook', {
+            templateUrl: 'components/gradebook/gradebook-landing.html',
             controller: 'MainController'
         })
 
@@ -85,25 +100,52 @@ app.controller('MainController', function($scope) {
         math: [
             {
                 title: 'Division Test 1',
-                total: 10
+                total: 10,
+                type: 'test',
+                due: '08/29/2016'
             },
             {
                 title: 'Times Tables 3',
-                total: 25
+                total: 25,
+                type: 'classwork',
+                due: '08/16/2016'
             },
             {
                 title: 'Times Tables 8',
-                total: 25
+                total: 25,
+                type: 'classwork',
+                due: '09/20/2016'
             }
         ],
         science: [
             {
                 title: 'Plate Tectonics Quiz',
-                total: 10
+                total: 10,
+                type: 'quiz',
+                due: '10/01/2016'
             },
             {
                 title: 'Chemistry Exam 2',
-                total: 100
+                total: 100,
+                type: 'test',
+                due: '09/10/2016'
+            }
+        ],
+        types: [
+            {
+                name: 'quiz'
+            },
+            {
+                name: 'test'
+            },
+            {
+                name: 'homework'
+            },
+            {
+                name: 'classwork'
+            },
+            {
+                name: 'project'
             }
         ]
     };

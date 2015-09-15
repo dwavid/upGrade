@@ -1,0 +1,44 @@
+<h1>Assignments</h1>
+<p>
+    Create, view, update, and delete assignments all from this page.
+</p>
+<a href="#new-assignment"><div class="ui teal button">+ New Assignment</div></a>
+<h2>Math</h2>
+<table class="ui unstackable padded single line selectable table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th class="collapsing right aligned">Type</th>
+            <th class="collapsing right aligned">Total</th>
+            <th class="collapsing right aligned">Due</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="assignment in assignments.math">
+            <td>{{assignment.title}}</td>
+            <td class="right aligned">{{assignment.type | uppercase}}</td>
+            <td class="right aligned">{{assignment.total}}</td>
+            <td class="right aligned">{{assignment.due}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Science</h2>
+<table class="ui unstackable padded single line selectable table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th class="collapsing right aligned">Type</th>
+            <th class="collapsing right aligned">Total</th>
+            <th class="collapsing right aligned">Due</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="assignment in assignments.science">
+            <td>{{assignment.title}}</td>
+            <td class="right aligned">{{assignment.type | uppercase}}</td>
+            <td class="right aligned">{{assignment.total}}</td>
+            <td class="right aligned">{{assignment.due}}</td>
+        </tr>
+    </tbody>
+</table>
