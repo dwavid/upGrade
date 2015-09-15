@@ -81,18 +81,30 @@ app.controller('MainController', function($scope) {
             }
         ];
     $scope.assignments =
-        [
+    {
+        math: [
             {
                 title: 'Division Test 1',
                 total: 10
             },
             {
                 title: 'Times Tables 3',
-                studentID: 25
+                total: 25
             },
             {
                 title: 'Times Tables 8',
-                studentID: 25
+                total: 25
             }
-        ];
+        ],
+        science: [
+            {
+                title: 'Plate Tectonics Quiz',
+                total: 10
+            },
+            {
+                title: 'Chemistry Exam 2',
+                total: 100
+            }
+        ]
+    };
 });
