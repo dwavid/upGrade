@@ -3,38 +3,24 @@
     Create, view, update, and delete assignments all from this page.
 </p>
 <a href="#new-assignment"><div class="ui teal button">+ New Assignment</div></a>
-<h2>Math</h2>
-<table class="ui unstackable padded single line selectable table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th class="collapsing right aligned">Type</th>
-            <th class="collapsing right aligned">Due</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="assignment in assignments" ng-if="assignment.subject === 'Math'">
-            <td>{{assignment.title}}</td>
-            <td class="right aligned">{{assignment.type | uppercase}}</td>
-            <td class="right aligned">{{assignment.due}}</td>
-        </tr>
-    </tbody>
-</table>
-
-<h2>Science</h2>
-<table class="ui unstackable padded single line selectable table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th class="collapsing right aligned">Type</th>
-            <th class="collapsing right aligned">Due</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="assignment in assignments" ng-if="assignment.subject === 'Science'">
-            <td>{{assignment.title}}</td>
-            <td class="right aligned">{{assignment.type | uppercase}}</td>
-            <td class="right aligned">{{assignment.due}}</td>
-        </tr>
-    </tbody>
-</table>
+<div ng-repeat="subject in subjects">
+    <br />
+    <h2>{{subject.name}}</h2>
+    <table class="ui unstackable padded single line selectable table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th class="collapsing right aligned">Type</th>
+                <th class="collapsing right aligned">Due</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="assignment in assignments" ng-if="assignment.subject === subject.name">
+                <td>{{assignment.title}}</td>
+                <td class="right aligned">{{assignment.type | uppercase}}</td>
+                <td class="right aligned">{{assignment.due}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br />
