@@ -96,57 +96,75 @@ app.controller('MainController', function($scope) {
             }
         ];
     $scope.assignments =
-    {
-        math: [
-            {
-                title: 'Division Test 1',
-                total: 10,
-                type: 'test',
-                due: '08/29/2016'
-            },
-            {
-                title: 'Times Tables 3',
-                total: 25,
-                type: 'classwork',
-                due: '08/16/2016'
-            },
-            {
-                title: 'Times Tables 8',
-                total: 25,
-                type: 'classwork',
-                due: '09/20/2016'
-            }
-        ],
-        science: [
-            {
-                title: 'Plate Tectonics Quiz',
-                total: 10,
-                type: 'quiz',
-                due: '10/01/2016'
-            },
-            {
-                title: 'Chemistry Exam 2',
-                total: 100,
-                type: 'test',
-                due: '09/10/2016'
-            }
-        ],
-        types: [
-            {
-                name: 'quiz'
-            },
-            {
-                name: 'test'
-            },
-            {
-                name: 'homework'
-            },
-            {
-                name: 'classwork'
-            },
-            {
-                name: 'project'
-            }
-        ]
-    };
+    [
+        {
+            title: 'Plate Tectonics Quiz',
+            total: 10,
+            type: 'quiz',
+            due: '10/01/2016',
+            subject: 'Science'
+        },
+        {
+            title: 'Chemistry Exam 2',
+            total: 100,
+            type: 'test',
+            due: '09/10/2016',
+            subject: 'Science'
+        },
+        {
+            title: 'Division Test 1',
+            total: 10,
+            type: 'test',
+            due: '08/29/2016',
+            subject: 'Math'
+        },
+        {
+            title: 'Times Tables 3',
+            total: 25,
+            type: 'classwork',
+            due: '08/16/2016',
+            subject: 'Math'
+        },
+        {
+            title: 'Times Tables 8',
+            total: 25,
+            type: 'classwork',
+            due: '09/20/2016',
+            subject: 'Math'
+        }
+    ];
+    $scope.types = [
+        {
+            name: 'quiz'
+        },
+        {
+            name: 'test'
+        },
+        {
+            name: 'homework'
+        },
+        {
+            name: 'classwork'
+        },
+        {
+            name: 'project'
+        }
+    ];
+    $scope.subjects = [
+        {
+            name: 'Math'
+        },
+        {
+            name: 'Science'
+        },
+        {
+            name: 'English'
+        },
+        {
+            name: 'Reading'
+        },
+        {
+            name: 'Social Studies'
+        }
+    ];
 });

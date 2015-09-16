@@ -4,8 +4,18 @@
         <i class="dropdown icon"></i>
         <span class="default text">Type</span>
         <div class="menu">
-            <div ng-repeat="type in assignments.types" class="item">
+            <div ng-repeat="type in types" class="item">
                 {{type.name | uppercase}}
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="ui fluid selection dropdown huge input item">
+        <i class="dropdown icon"></i>
+        <span class="default text">Subject</span>
+        <div class="menu">
+            <div ng-repeat="subject in subjects" class="item">
+                {{subject.name | uppercase}}
             </div>
         </div>
     </div>
