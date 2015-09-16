@@ -1,24 +1,9 @@
 <div class="page-center small container">
     <h1>Select class</h1>
-    <a href="" class="ui fluid massive button">
-        Science
-    </a>
-    <br />
-    <a href="#quick-entry" class="ui fluid massive button">
-        Mathematics
-    </a>
-    <br />
-    <a href="" class="ui fluid massive button">
-        Reading
-    </a>
-    <br />
-    <a href="" class="ui fluid massive button">
-        Social Studies
-    </a>
-    <br />
-    <a href="" class="ui fluid massive button">
-        Writing
-    </a>
+    <div ng-repeat="subject in subjects">
+        <a href="#quick-entry">
+            <input type="button" class="ui fluid massive button" value="{{subject.name}}" />
+        </a>
     <br />
 </div>
 <script>
