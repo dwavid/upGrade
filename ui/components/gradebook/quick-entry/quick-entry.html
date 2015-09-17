@@ -1,10 +1,20 @@
-<div class="page-center small container">
-    <h1>Enter grade</h1>
+<div class="page-center small container" ng-show="quickEntry.subject === ''">
+    <h1>Select class</h1>
+    <div ng-repeat="subject in subjects">
+        <!--<a href="#quick-entry">-->
+        <label for="{{subject.name}}-link" class="ui fluid massive button">{{subject.name}}</label>
+        <input id="{{subject.name}}-link" type="radio" style="display: none" ng-model="quickEntry.subject" ng-value="subject.name"/>
+        <!--</a>-->
+        <br />
+    </div>
+</div>
+<div class="page-center small container" ng-show="quickEntry.subject !== ''">
+    <h1>Enter {{quickEntry.subject}} grade&nbsp;<small><button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></small></h1>
     <div class="ui fluid selection dropdown huge input item">
         <i class="dropdown icon"></i>
         <span class="default text">Assignment</span>
         <div class="menu">
-            <div ng-repeat="assignment in assignments" class="item">
+            <div ng-repeat="assignment in assignments" ng-if="assignment.subject === quickEntry.subject" class="item">
                 {{assignment.title}}
             </div>
         </div>

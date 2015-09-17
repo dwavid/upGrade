@@ -13,11 +13,6 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'MainController'
         })
 
-        .when('/class-select', {
-            templateUrl: 'components/gradebook/quick-entry/class-select.html',
-            controller: 'MainController'
-        })
-
         .when('/roster', {
             templateUrl: 'components/students/roster.html',
             controller: 'MainController'
@@ -195,4 +190,7 @@ app.controller('MainController', function($scope) {
             name: 'Social Studies'
         }
     ];
+    $scope.quickEntry = {
+        subject: ''
+    };
 });
