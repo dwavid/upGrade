@@ -119,6 +119,34 @@ app.controller('MainController', function($scope) {
             subject: 'Math'
         },
         {
+            title: 'Book Report',
+            total: 75,
+            type: 'project',
+            due: '10/29/2016',
+            subject: 'Reading'
+        },
+        {
+            title: 'Spelling Quiz 2',
+            total: 15,
+            type: 'quiz',
+            due: '10/05/2016',
+            subject: 'English'
+        },
+        {
+            title: 'Spelling Quiz 1',
+            total: 15,
+            type: 'quiz',
+            due: '09/10/2016',
+            subject: 'English'
+        },
+        {
+            title: 'Map Project',
+            total: 120,
+            type: 'project',
+            due: '08/29/2016',
+            subject: 'Social Studies'
+        },
+        {
             title: 'Times Tables 3',
             total: 25,
             type: 'classwork',
