@@ -2,14 +2,17 @@
     <h1>Select class</h1>
     <div ng-repeat="subject in subjects">
         <!--<a href="#quick-entry">-->
-        <label for="{{subject.name}}-link" class="ui fluid massive button">{{subject.name}}</label>
+        <label for="{{subject.name}}-link" class="ui fluid large button">{{subject.name}}</label>
         <input id="{{subject.name}}-link" type="radio" style="display: none" ng-model="quickEntry.subject" ng-value="subject.name"/>
         <!--</a>-->
         <br />
     </div>
 </div>
 <div class="page-center small container" ng-show="quickEntry.subject !== ''">
-    <h1>Enter {{quickEntry.subject}} grade&nbsp;<small><button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></small></h1>
+    <h1>Enter grade</h1>
+    <span>{{quickEntry.subject}} <button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></span>
+    <br />
+    <br />
     <div class="ui fluid selection dropdown huge input item">
         <i class="dropdown icon"></i>
         <span class="default text">Assignment</span>
@@ -20,7 +23,7 @@
         </div>
     </div>
     <br />
-    <div class="ui fluid selection dropdown huge input item">
+    <div class="ui fluid selection dropdown large input item">
         <i class="dropdown icon"></i>
         <span class="default text">Student</span>
         <div class="menu">
@@ -30,18 +33,18 @@
         </div>
     </div>
     <br />
-    <div class="ui right labeled fluid massive input ginormous">
+    <div class="ui right labeled fluid large input ginormous">
         <input type="number" placeholder=""/>
         <label class="ui label">/</label>
     </div>
     <br />
     <div class="ui form">
-        <div class="ui huge input fluid field">
+        <div class="ui large input fluid field">
             <textarea rows="2" placeholder="Comment"></textarea>
         </div>
     </div>
     <br />
-    <div class="ui fluid huge buttons">
+    <div class="ui fluid large buttons">
         <button class="ui button">CANCEL</button>
         <div class="or"></div>
         <button class="ui teal button">SAVE</button>
