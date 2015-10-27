@@ -3,7 +3,12 @@
     <div ng-repeat="subject in subjects">
         <!--<a href="#quick-entry">-->
         <label for="{{subject.name}}-link" class="ui fluid large button">{{subject.name}}</label>
-        <input id="{{subject.name}}-link" type="radio" style="display: none" ng-model="quickEntry.subject" ng-value="subject.name"/>
+        <input id="{{subject.name}}-link"
+               type="radio"
+               style="display: none"
+               ng-model="quickEntry.subject"
+               ng-value="subject.name"
+               ng-click="quickEntry.assignment = ''"/>
         <!--</a>-->
         <br />
     </div>
@@ -13,29 +18,40 @@
     <span>{{quickEntry.subject}} <button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></span>
     <br />
     <br />
-    <div class="ui fluid selection dropdown huge input item">
-        <i class="dropdown icon"></i>
-        <span class="default text">Assignment</span>
-        <div class="menu">
-            <div ng-repeat="assignment in assignments" ng-if="assignment.subject === quickEntry.subject" class="item">
-                {{assignment.title}}
-            </div>
-        </div>
-    </div>
+    <!--TODO these dropdowns are forcing the user to make a selection twice before they work. Only occurs on official load. Make it work right!-->
+    <select
+            class="ui fluid selection dropdown large input item"
+            ng-model="quickEntry.assignment"
+            ng-options="assignment.title for assignment in assignments | filter:assignment.subject=quickEntry.subject">
+    </select>
+    <!--<div class="ui fluid selection dropdown huge input item">-->
+        <!--<i class="dropdown icon"></i>-->
+        <!--<span class="default text">Assignment</span>-->
+        <!--<div class="menu">-->
+            <!--<div ng-repeat="assignment in assignments" ng-if="assignment.subject === quickEntry.subject" class="item">-->
+                <!--{{assignment.title}}-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
     <br />
-    <div class="ui fluid selection dropdown large input item">
-        <i class="dropdown icon"></i>
-        <span class="default text">Student</span>
-        <div class="menu">
-            <div ng-repeat="student in students" class="item">
-                {{student.fName + ' ' + student.lName}}
-            </div>
-        </div>
-    </div>
+    <select
+            class="ui fluid selection dropdown large input item"
+            ng-model="quickEntry.student"
+            ng-options="(student.fName + ' ' + student.lName) for student in students">
+    </select>
+    <!--<div class="ui fluid selection dropdown large input item">-->
+        <!--<i class="dropdown icon"></i>-->
+        <!--<span class="default text">Student</span>-->
+        <!--<div class="menu">-->
+            <!--<div ng-repeat="student in students" class="item">-->
+                <!--{{student.fName + ' ' + student.lName}}-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
     <br />
     <div class="ui right labeled fluid large input ginormous">
         <input type="number" placeholder=""/>
-        <label class="ui label">/</label>
+        <label class="ui label">/{{quickEntry.assignment.total}}</label>
     </div>
     <br />
     <div class="ui form">

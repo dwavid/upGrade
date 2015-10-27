@@ -51,6 +51,44 @@ app.controller('MainController', function($scope) {
                 fName: 'Dave',
                 lName: 'Ross',
                 studentID: 18493,
+                grades: [
+                    {
+                        assignmentID: 1,
+                        points: 9
+                    },
+                    {
+                        assignmentID: 2,
+                        points: 87
+                    },
+                    {
+                        assignmentID: 3,
+                        points: 8
+                    },
+                    {
+                        assignmentID: 4,
+                        points: 71
+                    },
+                    {
+                        assignmentID: 5,
+                        points: 12
+                    },
+                    {
+                        assignmentID: 6,
+                        points: 11
+                    },
+                    {
+                        assignmentID: 7,
+                        points: 115
+                    },
+                    {
+                        assignmentID: 8,
+                        points: 19
+                    },
+                    {
+                        assignmentID: 9,
+                        points: 21
+                    }
+                ],
                 gpa: 2.3
             },
             {
@@ -90,10 +128,31 @@ app.controller('MainController', function($scope) {
                 gpa: 3.9
             }
         ];
+    //$scope.getGrades = function (studentID) {
+    //    for (var i = 0; i < $scope.students.length; i++) {
+    //        if (studentID == $scope.students[i].studentID) {
+    //            console.log('found match ' + $scope.students[i].fName);
+    //            for (var x = 0; x < $scope.students[i].grades.length; x ++) {
+    //                console.log('Assignment: ' + $scope.students[i].grades[x].assignmentID + ','
+    //                + ' Grade: ' + $scope.students[i].grades[x].points);
+    //            }
+    //        }
+    //    }
+    //};
+    //$scope.getGrades(18493);
+    //$scope.printName = function(studentID) {
+    //    for (var i = 0; i < $scope.students.length; i++) {
+    //        if (studentID == $scope.students[i].studentID) {
+    //            console.log($scope.students[i].fName);
+    //        }
+    //    }
+    //};
+    //$scope.printName(18493);
     $scope.assignments =
     [
         {
             title: 'Plate Tectonics Quiz',
+            assignmentID: 1,
             total: 10,
             type: 'quiz',
             due: '10/01/2016',
@@ -101,6 +160,7 @@ app.controller('MainController', function($scope) {
         },
         {
             title: 'Chemistry Exam 2',
+            assignmentID: 2,
             total: 100,
             type: 'test',
             due: '09/10/2016',
@@ -108,6 +168,7 @@ app.controller('MainController', function($scope) {
         },
         {
             title: 'Division Test 1',
+            assignmentID: 3,
             total: 10,
             type: 'test',
             due: '08/29/2016',
@@ -115,6 +176,7 @@ app.controller('MainController', function($scope) {
         },
         {
             title: 'Book Report',
+            assignmentID: 4,
             total: 75,
             type: 'project',
             due: '10/29/2016',
@@ -122,6 +184,7 @@ app.controller('MainController', function($scope) {
         },
         {
             title: 'Spelling Quiz 2',
+            assignmentID: 5,
             total: 15,
             type: 'quiz',
             due: '10/05/2016',
@@ -129,6 +192,7 @@ app.controller('MainController', function($scope) {
         },
         {
             title: 'Spelling Quiz 1',
+            assignmentID: 6,
             total: 15,
             type: 'quiz',
             due: '09/10/2016',
@@ -136,6 +200,7 @@ app.controller('MainController', function($scope) {
         },
         {
             title: 'Map Project',
+            assignmentID: 7,
             total: 120,
             type: 'project',
             due: '08/29/2016',
@@ -143,6 +208,7 @@ app.controller('MainController', function($scope) {
         },
         {
             title: 'Times Tables 3',
+            assignmentID: 8,
             total: 25,
             type: 'classwork',
             due: '08/16/2016',
@@ -150,6 +216,7 @@ app.controller('MainController', function($scope) {
         },
         {
             title: 'Times Tables 8',
+            assignmentID: 9,
             total: 25,
             type: 'classwork',
             due: '09/20/2016',
@@ -191,6 +258,8 @@ app.controller('MainController', function($scope) {
         }
     ];
     $scope.quickEntry = {
-        subject: ''
+        subject: '',
+        assignment: '',
+        student: ''
     };
 });
