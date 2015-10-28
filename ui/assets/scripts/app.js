@@ -128,26 +128,6 @@ app.controller('MainController', function($scope) {
                 gpa: 3.9
             }
         ];
-    //$scope.getGrades = function (studentID) {
-    //    for (var i = 0; i < $scope.students.length; i++) {
-    //        if (studentID == $scope.students[i].studentID) {
-    //            console.log('found match ' + $scope.students[i].fName);
-    //            for (var x = 0; x < $scope.students[i].grades.length; x ++) {
-    //                console.log('Assignment: ' + $scope.students[i].grades[x].assignmentID + ','
-    //                + ' Grade: ' + $scope.students[i].grades[x].points);
-    //            }
-    //        }
-    //    }
-    //};
-    //$scope.getGrades(18493);
-    //$scope.printName = function(studentID) {
-    //    for (var i = 0; i < $scope.students.length; i++) {
-    //        if (studentID == $scope.students[i].studentID) {
-    //            console.log($scope.students[i].fName);
-    //        }
-    //    }
-    //};
-    //$scope.printName(18493);
     $scope.assignments =
     [
         {
@@ -156,7 +136,8 @@ app.controller('MainController', function($scope) {
             total: 10,
             type: 'quiz',
             due: '10/01/2016',
-            subject: 'Science'
+            subject: 'Science',
+            description: ''
         },
         {
             title: 'Chemistry Exam 2',
@@ -164,7 +145,8 @@ app.controller('MainController', function($scope) {
             total: 100,
             type: 'test',
             due: '09/10/2016',
-            subject: 'Science'
+            subject: 'Science',
+            description: ''
         },
         {
             title: 'Division Test 1',
@@ -172,7 +154,8 @@ app.controller('MainController', function($scope) {
             total: 10,
             type: 'test',
             due: '08/29/2016',
-            subject: 'Math'
+            subject: 'Math',
+            description: ''
         },
         {
             title: 'Book Report',
@@ -180,7 +163,8 @@ app.controller('MainController', function($scope) {
             total: 75,
             type: 'project',
             due: '10/29/2016',
-            subject: 'Reading'
+            subject: 'Reading',
+            description: ''
         },
         {
             title: 'Spelling Quiz 2',
@@ -188,7 +172,8 @@ app.controller('MainController', function($scope) {
             total: 15,
             type: 'quiz',
             due: '10/05/2016',
-            subject: 'English'
+            subject: 'English',
+            description: ''
         },
         {
             title: 'Spelling Quiz 1',
@@ -196,7 +181,8 @@ app.controller('MainController', function($scope) {
             total: 15,
             type: 'quiz',
             due: '09/10/2016',
-            subject: 'English'
+            subject: 'English',
+            description: ''
         },
         {
             title: 'Map Project',
@@ -204,7 +190,8 @@ app.controller('MainController', function($scope) {
             total: 120,
             type: 'project',
             due: '08/29/2016',
-            subject: 'Social Studies'
+            subject: 'Social Studies',
+            description: ''
         },
         {
             title: 'Times Tables 3',
@@ -212,7 +199,8 @@ app.controller('MainController', function($scope) {
             total: 25,
             type: 'classwork',
             due: '08/16/2016',
-            subject: 'Math'
+            subject: 'Math',
+            description: ''
         },
         {
             title: 'Times Tables 8',
@@ -220,7 +208,8 @@ app.controller('MainController', function($scope) {
             total: 25,
             type: 'classwork',
             due: '09/20/2016',
-            subject: 'Math'
+            subject: 'Math',
+            description: ''
         }
     ];
     $scope.types = [
@@ -260,6 +249,22 @@ app.controller('MainController', function($scope) {
     $scope.quickEntry = {
         subject: '',
         assignment: '',
-        student: ''
+        student: '',
+        grade: '',
+        comment: ''
+    };
+    $scope.logQuickEntry = function () {
+        console.log(angular.toJson($scope.quickEntry));
+    };
+    $scope.newAssignment = {
+        title: '',
+        total: '',
+        type: '',
+        due: '',
+        subject: '',
+        description: ''
+    };
+    $scope.logNewAssignment = function () {
+        console.log(angular.toJson($scope.newAssignment));
     };
 });
