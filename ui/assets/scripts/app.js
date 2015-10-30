@@ -9,33 +9,27 @@ app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
 
         .when('/quick-entry', {
-            templateUrl: 'components/gradebook/quick-entry/quick-entry.html',
-            controller: 'MainController'
+            templateUrl: 'components/gradebook/quick-entry/quick-entry.html'
         })
 
         .when('/roster', {
-            templateUrl: 'components/students/roster.html',
-            controller: 'MainController'
+            templateUrl: 'components/students/roster.html'
         })
 
         .when('/quick-links', {
-            templateUrl: 'components/quick-links.html',
-            controller: 'MainController'
+            templateUrl: 'components/quick-links.html'
         })
 
         .when('/all-assignments', {
-            templateUrl: 'components/gradebook/assignments/all-assignments.html',
-            controller: 'MainController'
+            templateUrl: 'components/gradebook/assignments/all-assignments.html'
         })
 
         .when('/new-assignment', {
-            templateUrl: 'components/gradebook/assignments/new-assignment.html',
-            controller: 'MainController'
+            templateUrl: 'components/gradebook/assignments/new-assignment.html'
         })
 
         .when('/gradebook', {
-            templateUrl: 'components/gradebook/gradebook-landing.html',
-            controller: 'MainController'
+            templateUrl: 'components/gradebook/gradebook-landing.html'
         })
 
         .otherwise({
@@ -45,6 +39,10 @@ app.config(['$routeProvider', function($routeProvider) {
 }]);
 
 app.controller('MainController', function($scope) {
+    $scope.project = {
+        application: 'upGrade',
+        version: '0.0.1'
+    };
     $scope.students =
         [
             {
