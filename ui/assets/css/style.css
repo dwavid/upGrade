@@ -59,4 +59,16 @@
 .screen-element {
   font-weight: bold; }
 
+.helpBar {
+  background: #ffffff;
+  padding: 25px;
+  text-align: left; }
+
+@media screen and (max-width: 768px) {
+  .hidden-sm {
+    display: none; } }
+@media screen and (min-width: 769px) {
+  .hidden-lg {
+    display: none; } }
+
 /*# sourceMappingURL=style.css.map */

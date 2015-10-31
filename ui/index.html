@@ -22,6 +22,10 @@
      id="sidebarNav"
      ng-include="'common/navigation/sidebar-nav.html'">
 </div>
+<div class="ui right very wide sidebar helpBar"
+     id="sidebarHelp"
+     ng-include="helpUrl">
+</div>
 <div class="pusher">
         <div class="header">
             <div class="ui container">
@@ -30,8 +34,13 @@
         </div>
         <div class="mainz">
             <div class="ui container">
-                <div class="text-right">
+                <div class="text-right hidden-lg">
                     <a href="" onclick="$('#helpModal').modal({blurring:true}).modal('show');">
+                        Need help?
+                    </a>
+                </div>
+                <div class="text-right hidden-sm">
+                    <a href="" onclick="$('#sidebarHelp').sidebar('toggle');">
                         Need help?
                     </a>
                 </div>
