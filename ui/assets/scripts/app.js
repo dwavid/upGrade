@@ -11,7 +11,7 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/quick-entry', {
             templateUrl: 'components/gradebook/quick-entry/quick-entry.html',
             title: 'Quick Entry',
-            helpUrl: ''
+            helpUrl: 'help/quick-entry-help.html'
         })
 
         .when('/roster', {
@@ -54,6 +54,9 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', function(
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {  //using success callback of route change
         if(current.$$route && current.$$route.title) { //Checking whether $$route is initialised or not
             $rootScope.title = current.$$route.title;
+            $rootScope.helpUrl = current.$$route.helpUrl;
+            console.log($rootScope.title);
+            console.log($rootScope.helpUrl);
         }
     });
     $scope.project = {

@@ -29,6 +29,18 @@
         </div>
         <div class="mainz">
             <div class="ui container">
+                <div class="text-right">
+                    <a href="" onclick="$('#helpModal').modal({blurring:true}).modal('show');">
+                        Need help?
+                    </a>
+                </div>
+                <div class="ui modal" id="helpModal">
+                    <div class="header">Help | {{title}}</div>
+                    <div class="content" ng-include="helpUrl"></div>
+                    <div class="actions">
+                        <button class="ui teal button" onclick="$('#helpModal').modal('hide');">Got it</button>
+                    </div>
+                </div>
                 <div ng-view></div>
             </div>
         </div>
