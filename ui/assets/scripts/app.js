@@ -55,8 +55,6 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', function(
         if(current.$$route && current.$$route.title) { //Checking whether $$route is initialised or not
             $rootScope.title = current.$$route.title;
             $rootScope.helpUrl = current.$$route.helpUrl;
-            console.log($rootScope.title);
-            console.log($rootScope.helpUrl);
         }
     });
     $scope.project = {
