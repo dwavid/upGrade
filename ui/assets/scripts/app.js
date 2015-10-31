@@ -9,27 +9,39 @@ app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
 
         .when('/quick-entry', {
-            templateUrl: 'components/gradebook/quick-entry/quick-entry.html'
+            templateUrl: 'components/gradebook/quick-entry/quick-entry.html',
+            title: 'Quick Entry',
+            helpUrl: ''
         })
 
         .when('/roster', {
-            templateUrl: 'components/students/roster.html'
+            templateUrl: 'components/students/roster.html',
+            title: 'Roster',
+            helpUrl: ''
         })
 
         .when('/quick-links', {
-            templateUrl: 'components/quick-links.html'
+            templateUrl: 'components/quick-links.html',
+            title: 'Quick Links',
+            helpUrl: ''
         })
 
         .when('/all-assignments', {
-            templateUrl: 'components/gradebook/assignments/all-assignments.html'
+            templateUrl: 'components/gradebook/assignments/all-assignments.html',
+            title: 'Assignments',
+            helpUrl: ''
         })
 
         .when('/new-assignment', {
-            templateUrl: 'components/gradebook/assignments/new-assignment.html'
+            templateUrl: 'components/gradebook/assignments/new-assignment.html',
+            title: 'New Assignment',
+            helpUrl: ''
         })
 
         .when('/gradebook', {
-            templateUrl: 'components/gradebook/gradebook-landing.html'
+            templateUrl: 'components/gradebook/gradebook-landing.html',
+            title: 'Gradebook',
+            helpUrl: ''
         })
 
         .otherwise({
@@ -38,7 +50,12 @@ app.config(['$routeProvider', function($routeProvider) {
 
 }]);
 
-app.controller('MainController', function($scope) {
+app.controller('MainController', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {  //using success callback of route change
+        if(current.$$route && current.$$route.title) { //Checking whether $$route is initialised or not
+            $rootScope.title = current.$$route.title;
+        }
+    });
     $scope.project = {
         application: 'upGrade',
         version: '0.0.1'
@@ -265,4 +282,4 @@ app.controller('MainController', function($scope) {
     $scope.logNewAssignment = function () {
         console.log(angular.toJson($scope.newAssignment));
     };
-});
+}]);
