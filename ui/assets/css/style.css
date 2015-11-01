@@ -41,9 +41,6 @@
   width: 95%;
   max-width: 500px; }
 
-.fluid.dropdown {
-  width: 100%; }
-
 .ui.huge.dropdown .menu .item {
   font-size: inherit; }
 
@@ -63,6 +60,17 @@
   background: #ffffff;
   padding: 25px;
   text-align: left; }
+
+div.note {
+  margin: 5px 0;
+  padding: 5px;
+  background: #efefef;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
+  div.note .note-label {
+    font-weight: bold;
+    color: #009a9a; }
 
 @media screen and (max-width: 768px) {
   .hidden-sm {
