@@ -22,7 +22,7 @@
      id="sidebarNav"
      ng-include="'common/navigation/sidebar-nav.html'">
 </div>
-<div class="ui right very wide sidebar helpBar"
+<div class="ui right very wide sidebar helpBar helpContent"
      id="sidebarHelp"
      ng-include="helpUrl">
 </div>
@@ -44,7 +44,7 @@
                         Need help?
                     </a>
                 </div>
-                <div class="ui modal" id="helpModal">
+                <div class="ui modal helpContent" id="helpModal">
                     <div class="header">Help | {{title}}</div>
                     <div class="content" ng-include="helpUrl"></div>
                     <div class="actions">

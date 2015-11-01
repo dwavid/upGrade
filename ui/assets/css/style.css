@@ -61,11 +61,10 @@
 .screen-element {
   font-weight: bold; }
 
-.helpBar {
+.helpContent.helpBar {
   background: #ffffff;
   padding: 25px;
   text-align: left; }
-
 .help-note, .help-warning {
   margin: 5px 0;
   padding: 5px;
@@ -74,10 +73,11 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
   border-left: 5px solid #009a9a; }
-
 .help-warning {
   background: #fff5f5;
   border-left: 5px solid #FF5C5C; }
+.helpContent ol li {
+  margin: 7px 0; }
 
 @media screen and (max-width: 768px) {
   .hidden-sm {

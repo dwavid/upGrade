@@ -96,25 +96,31 @@ $header-height: 60px;
 }
 
 //HELP FILES AND SUCH
-.helpBar {
-  background: #ffffff;
-  padding: 25px;
-  text-align: left;
+.helpContent {
+  &.helpBar {
+    background: #ffffff;
+    padding: 25px;
+    text-align: left;
+  }
+  @at-root .help-note {
+    margin: 5px 0;
+    padding: 5px;
+    background: $lightGray;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border-left: 5px solid $lightTeal;
+  }
+  @at-root .help-warning {
+    @extend .help-note;
+    background: lighten($red, 30%);
+    border-left: 5px solid $red;
+  }
+  ol li {
+    margin: 7px 0;
+  }
 }
-.help-note {
-  margin: 5px 0;
-  padding: 5px;
-  background: $lightGray;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  border-left: 5px solid $lightTeal;
-}
-.help-warning {
-  @extend .help-note;
-  background: lighten($red, 30%);
-  border-left: 5px solid $red;
-}
+
 @media screen and (max-width: 768px) {
   .hidden-sm {
     display: none;
