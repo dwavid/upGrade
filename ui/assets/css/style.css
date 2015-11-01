@@ -37,9 +37,14 @@
   margin-top: 30px; }
 
 .small.container {
-  text-align: center;
   width: 95%;
   max-width: 500px; }
+  .small.container .field > label {
+    text-align: left !important;
+    color: #009a9a; }
+  .small.container .intro {
+    text-align: center;
+    margin-bottom: 20px; }
 
 .ui.huge.dropdown .menu .item {
   font-size: inherit; }
@@ -61,16 +66,18 @@
   padding: 25px;
   text-align: left; }
 
-div.note {
+.help-note, .help-warning {
   margin: 5px 0;
   padding: 5px;
   background: #efefef;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px; }
-  div.note .note-label {
-    font-weight: bold;
-    color: #009a9a; }
+  border-radius: 5px;
+  border-left: 5px solid #009a9a; }
+
+.help-warning {
+  background: #fff5f5;
+  border-left: 5px solid #FF5C5C; }
 
 @media screen and (max-width: 768px) {
   .hidden-sm {

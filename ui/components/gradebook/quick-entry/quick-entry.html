@@ -1,5 +1,7 @@
 <div class="page-center small container" ng-show="quickEntry.subject === ''">
-    <h1>Select class</h1>
+    <div class="intro">
+        <h1>Select class</h1>
+    </div>
     <div ng-repeat="subject in subjects">
         <!--<a href="#quick-entry">-->
         <label for="{{subject.name}}-link" class="ui fluid large button">{{subject.name}}</label>
@@ -9,55 +11,48 @@
                ng-model="quickEntry.subject"
                ng-value="subject.name"
                ng-click="quickEntry.assignment = ''"/>
-        <!--</a>-->
         <br />
     </div>
 </div>
 <div class="page-center small container" ng-show="quickEntry.subject !== ''">
-    <h1>Enter grade</h1>
-    <span>{{quickEntry.subject}} <button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></span>
-    <br />
-    <br />
-    <select
-            class="ui fluid selection dropdown huge input item"
-            ng-model="quickEntry.assignment"
-            ng-options="assignment as assignment.title for assignment in assignments | filter:assignment.subject=quickEntry.subject">
-        <option value="">Select assignment</option>
-    </select>
-    <!--<div class="ui fluid selection dropdown huge input item">-->
-        <!--<i class="dropdown icon"></i>-->
-        <!--<span class="default text">Assignment</span>-->
-        <!--<div class="menu">-->
-            <!--<div ng-repeat="assignment in assignments" ng-if="assignment.subject === quickEntry.subject" class="item">-->
-                <!--{{assignment.title}}-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <br />
-    <select
-            class="ui fluid selection dropdown huge input item"
-            ng-model="quickEntry.student"
-            ng-options="student as (student.fName + ' ' + student.lName) for student in students">
-        <option value="">Select student</option>
-    </select>
-    <!--<div class="ui fluid selection dropdown large input item">-->
-        <!--<i class="dropdown icon"></i>-->
-        <!--<span class="default text">Student</span>-->
-        <!--<div class="menu">-->
-            <!--<div ng-repeat="student in students" class="item">-->
-                <!--{{student.fName + ' ' + student.lName}}-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <br />
-    <div class="ui right labeled fluid large input ginormous">
-        <input type="number" placeholder="" ng-model="quickEntry.grade"/>
-        <label class="ui label">/{{quickEntry.assignment.total}}</label>
+    <div class="intro">
+        <h1>Enter grade</h1>
+        <span>{{quickEntry.subject}} <button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></span>
     </div>
-    <br />
     <div class="ui form">
-        <div class="ui large input fluid field">
-            <textarea rows="2" placeholder="Comment"></textarea>
+        <div class="field">
+            <label for="assignment">Assignment</label>
+            <select id="assignment"
+                    class="ui fluid selection dropdown huge input item"
+                    ng-model="quickEntry.assignment"
+                    ng-options="assignment as assignment.title for assignment in assignments | filter:assignment.subject=quickEntry.subject">
+                <option value="">Select assignment</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="student">Student</label>
+            <select id="student"
+                    class="ui fluid selection dropdown huge input item"
+                    ng-model="quickEntry.student"
+                    ng-options="student as (student.fName + ' ' + student.lName) for student in students">
+                <option value="">Select student</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="grade">Grade</label>
+            <div id="grade" class="ui right labeled fluid large input ginormous">
+                <input type="number" placeholder="" ng-model="quickEntry.grade"/>
+                <label class="ui label">/{{quickEntry.assignment.total}}</label>
+            </div>
+        </div>
+        <div ng-show="quickEntry.grade > quickEntry.assignment.total" class="help-warning">
+            Whoa, nelly! Looks like the number you entered is higher than the total possible. Might want to double-check that...
+        </div>
+        <div class="field">
+            <label for="comment">Comment</label>
+            <div id="comment" class="ui large input fluid field">
+                <textarea rows="2" placeholder="Comment"></textarea>
+            </div>
         </div>
     </div>
     <br />

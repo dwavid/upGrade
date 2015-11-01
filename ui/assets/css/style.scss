@@ -6,6 +6,7 @@ $lightTeal: lighten($teal, 5%);
 $gray: #b4b4b4;
 $lightGray: lighten($gray, 23%);
 $extraLightGray: lighten($lightGray, 5%);
+$red: #FF5C5C;
 
 //Measurements
 $header-height: 60px;
@@ -54,9 +55,18 @@ $header-height: 60px;
   margin-top: 30px;
 }
 .small.container {
-  text-align: center;
   width: 95%;
   max-width: 500px;
+  .field {
+    >label {
+      text-align: left !important;
+      color: $lightTeal;
+    }
+  }
+  .intro {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 //.fluid.dropdown {
 //  width: 100%;
@@ -91,18 +101,19 @@ $header-height: 60px;
   padding: 25px;
   text-align: left;
 }
-div.note {
+.help-note {
   margin: 5px 0;
   padding: 5px;
   background: $lightGray;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  //border-left: 5px solid $lightTeal;
-  .note-label {
-    font-weight: bold;
-    color: $lightTeal;
-  }
+  border-left: 5px solid $lightTeal;
+}
+.help-warning {
+  @extend .help-note;
+  background: lighten($red, 30%);
+  border-left: 5px solid $red;
 }
 @media screen and (max-width: 768px) {
   .hidden-sm {

@@ -1,55 +1,52 @@
 <div class="page-center small container">
-    <h1>New Assignment</h1>
-    <select
-            class="ui fluid selection dropdown huge input item"
-            ng-model="newAssignment.type"
-            ng-options="type.name as (type.name | uppercase) for type in types">
-        <option value=''>Select type</option>
-    </select>
-    <!--<div class="ui fluid selection dropdown huge input item">-->
-        <!--<i class="dropdown icon"></i>-->
-        <!--<span class="default text">Type</span>-->
-        <!--<div class="menu">-->
-            <!--<div ng-repeat="type in types" class="item">-->
-                <!--{{type.name | uppercase}}-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <br />
-    <select
-            class="ui fluid selection dropdown huge input item"
-            ng-model="newAssignment.subject"
-            ng-options="(subject.name) as (subject.name | uppercase) for subject in subjects">
-        <option value=''>Select subject</option>
-    </select>
-    <!--<div class="ui fluid selection dropdown huge input item">-->
-        <!--<i class="dropdown icon"></i>-->
-        <!--<span class="default text">Subject</span>-->
-        <!--<div class="menu">-->
-            <!--<div ng-repeat="subject in subjects" class="item">-->
-                <!--{{subject.name | uppercase}}-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <br />
-    <div class="ui fluid huge input item">
-        <input type="text" placeholder="Title" ng-model="newAssignment.title" />
+    <div class="intro">
+        <h1>New Assignment</h1>
     </div>
-    <br />
-    <div class="ui fluid huge input item">
-        <input type="number" placeholder="Total" ng-model="newAssignment.total" />
-    </div>
-    <br />
-    <div class="ui fluid huge input item">
-        <input type="date" placeholder="Due date" ng-model="newAssignment.dueDate" />
-    </div>
-    <br />
     <div class="ui form">
-        <div class="ui huge input fluid field">
-            <textarea rows="2" placeholder="Description" ng-model="newAssignment.description"></textarea>
+        <div class="field">
+            <label for="type">Type</label>
+            <select id="type"
+                    class="ui fluid selection dropdown huge input item"
+                    ng-model="newAssignment.type"
+                    ng-options="type.name as (type.name | uppercase) for type in types">
+                <option value=''>Select type</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="subject">Subject</label>
+            <select id="subject"
+                    class="ui fluid selection dropdown huge input item"
+                    ng-model="newAssignment.subject"
+                    ng-options="(subject.name) as (subject.name | uppercase) for subject in subjects">
+                <option value=''>Select subject</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="subject">Title</label>
+            <div class="ui fluid huge input item">
+                <input id="Title" type="text" placeholder="Title" ng-model="newAssignment.title" />
+            </div>
+        </div>
+        <div class="field">
+            <label for="subject">Total</label>
+            <div class="ui fluid huge input item">
+                <input type="number" placeholder="Total" ng-model="newAssignment.total" />
+            </div>
+        </div>
+        <div class="field">
+            <label for="subject">Due date</label>
+            <div class="ui fluid huge input item">
+                <input type="date" placeholder="Due date" ng-model="newAssignment.dueDate" />
+            </div>
+        </div>
+        <div class="field">
+            <label for="subject">Description</label>
+            <div class="ui huge input fluid field">
+                <textarea rows="2" placeholder="Description" ng-model="newAssignment.description"></textarea>
+            </div>
         </div>
     </div>
-    <br />
+    <br/>
     <div class="ui fluid huge buttons">
         <button class="ui button">CANCEL</button>
         <div class="or"></div>
