@@ -1,8 +1,8 @@
 //spec
-describe('Protractor Demo App', function() {
-  it('should have a title', function() {
-    browser.get('http://localhost:63342/upGrade/ui');
+describe('The quick links page', function() {
+  it('should have an informative title', function() {
+    browser.get('http://localhost:63342/upGrade/ui/#/components/quick-links');
 
-    expect(browser.getTitle()).toEqual('upGrade');
+    expect(browser.getTitle()).toEqual('Quick Links | upGrade');
   });
 });
