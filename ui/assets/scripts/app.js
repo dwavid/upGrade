@@ -23,7 +23,7 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/quick-links', {
             templateUrl: 'components/quick-links.html',
             title: 'Quick Links',
-            helpUrl: ''
+            helpUrl: 'help/quick-links-help.html'
         })
 
         .when('/all-assignments', {
@@ -41,7 +41,7 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/gradebook', {
             templateUrl: 'components/gradebook/gradebook-landing.html',
             title: 'Gradebook',
-            helpUrl: ''
+            helpUrl: 'help/gradebook-help.html'
         })
 
         .otherwise({
@@ -57,6 +57,10 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', function(
             $rootScope.helpUrl = current.$$route.helpUrl;
         }
     });
+    $scope.helpJump = function (url) {
+        // TODO make it so this refreshes the modal position - right now, it's just lengthening the modal and not recentering it vertically
+        $rootScope.helpUrl = url;
+    };
     $scope.project = {
         application: 'upGrade',
         version: '0.0.1'

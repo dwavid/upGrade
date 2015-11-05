@@ -34,16 +34,16 @@
         </div>
         <div class="mainz">
             <div class="ui container">
-                <div class="text-right hidden-lg" ng-if="helpUrl">
+                <div class="text-right" ng-if="helpUrl">
                     <a href="" onclick="$('#helpModal').modal({blurring:true}).modal('show');">
                         Need help?
                     </a>
                 </div>
-                <div class="text-right hidden-sm" ng-if="helpUrl">
-                    <a href="" onclick="$('#sidebarHelp').sidebar('toggle');">
-                        Need help?
-                    </a>
-                </div>
+                <!--<div class="text-right hidden-sm" ng-if="helpUrl">-->
+                    <!--<a href="" onclick="$('#sidebarHelp').sidebar('toggle');">-->
+                        <!--Need help?-->
+                    <!--</a>-->
+                <!--</div>-->
                 <div class="ui modal helpContent" id="helpModal">
                     <div class="header">Help | {{title}}</div>
                     <div class="content" ng-include="helpUrl"></div>
