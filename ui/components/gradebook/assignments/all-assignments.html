@@ -3,9 +3,9 @@
     Create, view, update, and delete assignments all from this page.
 </p>
 <a href="#new-assignment"><div class="ui teal button">+ New Assignment</div></a>
-<div ng-repeat="subject in subjects">
+<div ng-repeat="subject in allSubjects.data">
     <br />
-    <h2>{{subject.name}}</h2>
+    <h2>{{subject.name | titlecase}}</h2>
     <table class="ui unstackable padded single line selectable table">
         <thead>
             <tr>
@@ -15,9 +15,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="assignment in assignments" ng-if="assignment.subject === subject.name">
+            <tr ng-repeat="assignment in allAssignments.data" ng-if="assignment.subject === subject.name">
                 <td>{{assignment.title}}</td>
-                <td class="right aligned">{{assignment.type | uppercase}}</td>
+                <td class="right aligned">{{assignment.type | titlecase}}</td>
                 <td class="right aligned">{{assignment.due}}</td>
             </tr>
         </tbody>
