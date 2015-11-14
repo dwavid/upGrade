@@ -3,7 +3,14 @@
  */
 'use strict';
 
-var app = angular.module('upGrade', ['ngRoute']);
+var app = angular.module('upGrade', ['ngRoute', 'backand']);
+
+//Update Angular configuration section
+app.config(function (BackandProvider) {
+    BackandProvider.setAppName('upgrade');
+    BackandProvider.setSignUpToken('11b29a4f-d1aa-4212-ab7b-f5006dc9ae35');
+    BackandProvider.setAnonymousToken('74ab4a5e-7ab4-4b23-991c-9650d7818233');
+});
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
@@ -50,7 +57,7 @@ app.config(['$routeProvider', function($routeProvider) {
 
 }]);
 
-app.controller('MainController', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 'Backand', function($scope, $rootScope, $location, $http, Backand) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {  //using success callback of route change
         if(current.$$route && current.$$route.title) { //Checking whether $$route is initialised or not
             $rootScope.title = current.$$route.title;
@@ -287,4 +294,47 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', function(
     $scope.logNewAssignment = function () {
         console.log(angular.toJson($scope.newAssignment));
     };
+
+    //GET AN OBJECT FROM DATABASE
+    $scope.getObject = function(name, sort, filter) {
+        return $http({
+            method: 'GET',
+            url: Backand.getApiUrl() + '/1/objects/' + name,
+            params: {
+                //pageSize: 20,
+                //pageNumber: 1,
+                filter: filter || '',
+                sort: sort || ''
+            }
+        })
+    };
+
+    //SET VARIOUS OBJECTS (SUBJECTS, TYPES, ETC.)
+    $scope.allSubjects = $scope.getObject('subjects')
+        .success(function (data, response) {
+            $scope.allSubjects = data;
+        });
+    $scope.allTypes = $scope.getObject('types')
+        .success(function (data, response) {
+            $scope.allTypes = data;
+        });
+    $scope.allStudents = $scope.getObject('students')
+        .success(function (data, response) {
+            $scope.allStudents = data;
+        });
+    $scope.allAssignments = $scope.getObject('assignments')
+        .success(function (data, response) {
+            $scope.allAssignments = data;
+        });
+
+    $scope.postObject = function(name, object) {
+        return $http({
+            method: 'POST',
+            url: Backand.getApiUrl() + '/1/objects/' + name,
+            data: angular.toJson(object)
+        })
+    };
+    $scope.postAssignment = function () {
+        $scope.postObject('assignments', $scope.newAssignment);
+    }
 }]);
