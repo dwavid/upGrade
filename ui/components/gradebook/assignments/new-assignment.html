@@ -8,7 +8,7 @@
             <select id="type"
                     class="ui fluid selection dropdown huge input item"
                     ng-model="newAssignment.type"
-                    ng-options="type.name as (type.name | uppercase) for type in types">
+                    ng-options="type.name as (type.name | uppercase) for type in allTypes.data">
                 <option value=''>Select type</option>
             </select>
         </div>
@@ -17,7 +17,7 @@
             <select id="subject"
                     class="ui fluid selection dropdown huge input item"
                     ng-model="newAssignment.subject"
-                    ng-options="(subject.name) as (subject.name | uppercase) for subject in subjects">
+                    ng-options="(subject.name) as (subject.name | uppercase) for subject in allSubjects.data">
                 <option value=''>Select subject</option>
             </select>
         </div>

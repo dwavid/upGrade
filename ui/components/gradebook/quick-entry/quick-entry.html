@@ -4,7 +4,7 @@
     </div>
     <div ng-repeat="subject in allSubjects.data">
         <!--<a href="#quick-entry">-->
-        <label for="{{subject.name}}-link" class="ui fluid large button">{{subject.name}}</label>
+        <label for="{{subject.name}}-link" class="ui fluid large button">{{subject.name | uppercase}}</label>
         <input id="{{subject.name}}-link"
                type="radio"
                style="display: none"
