@@ -9,7 +9,7 @@
                type="radio"
                style="display: none"
                ng-model="quickEntry.subject"
-               ng-value="subject.name"
+               ng-value="subject"
                ng-click="quickEntry.assignment = ''"/>
         <br />
     </div>
@@ -17,7 +17,7 @@
 <div class="page-center small container" ng-show="quickEntry.subject !== ''">
     <div class="intro">
         <h1>Enter grade</h1>
-        <span>{{quickEntry.subject}} <button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></span>
+        <span>{{quickEntry.subject.name}} <button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></span>
     </div>
     <div class="ui form">
         <div class="field">
@@ -25,7 +25,7 @@
             <select id="assignment"
                     class="ui fluid selection dropdown huge input item"
                     ng-model="quickEntry.assignment"
-                    ng-options="assignment as assignment.title for assignment in allAssignments.data | filter:assignment.subject=quickEntry.subject">
+                    ng-options="assignment as assignment.title for assignment in allAssignments.data | filter:assignment.subject = quickEntry.subject.name">
                 <option value="">Select assignment</option>
             </select>
         </div>
@@ -41,11 +41,11 @@
         <div class="field">
             <label for="grade">Grade</label>
             <div id="grade" class="ui right labeled fluid large input ginormous">
-                <input type="number" placeholder="" ng-model="quickEntry.grade"/>
+                <input type="number" placeholder="" ng-model="quickEntry.data.score"/>
                 <label class="ui label">/{{quickEntry.assignment.total}}</label>
             </div>
         </div>
-        <div ng-show="quickEntry.grade > quickEntry.assignment.total" class="help-warning">
+        <div ng-show="quickEntry.score > quickEntry.assignment.total" class="help-warning">
             Whoa, nelly! Looks like the number you entered is higher than the total possible. Might want to double-check that...
         </div>
         <div class="field">
@@ -59,6 +59,6 @@
     <div class="ui fluid large buttons">
         <button class="ui button">CANCEL</button>
         <div class="or"></div>
-        <button class="ui teal button" ng-click="logQuickEntry();">SAVE</button>
+        <button class="ui teal button" ng-click="logQuickEntry();postGrade();">SAVE</button>
     </div>
 </div>

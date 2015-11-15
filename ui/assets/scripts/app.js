@@ -297,10 +297,15 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     ];
     $scope.quickEntry = {
         subject: '',
-        assignment: '',
         student: '',
-        grade: '',
-        comment: ''
+        assignment: '',
+        data: {
+            score: '',
+            comment: '',
+            subject: '',
+            student: '',
+            assignment: ''
+        }
     };
     $scope.logQuickEntry = function () {
         console.log(angular.toJson($scope.quickEntry));
@@ -349,6 +354,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
             $scope.allAssignments = data;
         });
 
+    //POST AN OBJECT TO THE DATABASE
     $scope.postObject = function(name, object) {
         return $http({
             method: 'POST',
@@ -358,5 +364,11 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     };
     $scope.postAssignment = function () {
         $scope.postObject('assignments', $scope.newAssignment);
-    }
+    };
+    $scope.postGrade = function() {
+        $scope.quickEntry.data.subject = $scope.quickEntry.subject.id;
+        $scope.quickEntry.data.student = $scope.quickEntry.student.id;
+        $scope.quickEntry.data.assignment = $scope.quickEntry.assignment.id;
+        $scope.postObject('grades', $scope.quickEntry.data);
+    };
 }]);
