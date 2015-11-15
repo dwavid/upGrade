@@ -361,7 +361,8 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
         });
     $scope.allGrades = $scope.getObject('grades')
         .success(function (data, response) {
-            $scope.allAssignments = data;
+            $scope.allGrades = data;
+            console.log($scope.allGrades);
         });
 
     //POST AN OBJECT TO THE DATABASE
