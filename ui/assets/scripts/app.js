@@ -73,6 +73,12 @@ app.config(['$routeProvider', function($routeProvider) {
             helpUrl: 'help/gradebook-help.html'
         })
 
+        .when('/analytics', {
+            templateUrl: 'components/analytics/analytics-landing.html',
+            title: 'Analytics',
+            helpUrl: ''
+        })
+
         .otherwise({
             redirectTo: '/quick-links'
         });
@@ -350,6 +356,10 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
             $scope.allStudents = data;
         });
     $scope.allAssignments = $scope.getObject('assignments')
+        .success(function (data, response) {
+            $scope.allAssignments = data;
+        });
+    $scope.allGrades = $scope.getObject('grades')
         .success(function (data, response) {
             $scope.allAssignments = data;
         });
