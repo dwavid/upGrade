@@ -4,6 +4,7 @@
 $teal: #008080;
 $lightTeal: lighten($teal, 5%);
 $gray: #b4b4b4;
+$darkGray: darken($gray, 23%);
 $lightGray: lighten($gray, 23%);
 $extraLightGray: lighten($lightGray, 5%);
 $red: #FF5C5C;
@@ -21,7 +22,7 @@ $header-height: 60px;
   z-index: 9;
   font-size: 1.5em;
   .item:hover {
-    background: $lightGray;
+    background: black;
     .icon {
       color: $lightTeal;
     }

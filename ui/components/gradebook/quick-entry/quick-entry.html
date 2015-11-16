@@ -4,7 +4,7 @@
     </div>
     <div ng-repeat="subject in allSubjects.data">
         <!--<a href="#quick-entry">-->
-        <label for="{{subject.name}}-link" class="ui fluid large button">{{subject.name | uppercase}}</label>
+        <label for="{{subject.name}}-link" class="ui fluid large button">{{subject.name | titlecase}}</label>
         <input id="{{subject.name}}-link"
                type="radio"
                style="display: none"
@@ -17,7 +17,7 @@
 <div class="page-center small container" ng-show="quickEntry.subject !== ''">
     <div class="intro">
         <h1>Enter grade</h1>
-        <span>{{quickEntry.subject.name}} <button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></span>
+        <span>{{quickEntry.subject.name | titlecase}} <button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></span>
     </div>
     <div class="ui form">
         <div class="field">
@@ -45,7 +45,7 @@
                 <label class="ui label">/{{quickEntry.assignment.total}}</label>
             </div>
         </div>
-        <div ng-show="quickEntry.score > quickEntry.assignment.total" class="help-warning">
+        <div ng-show="quickEntry.data.score > quickEntry.assignment.total" class="help-warning">
             Whoa, nelly! Looks like the number you entered is higher than the total possible. Might want to double-check that...
         </div>
         <div class="field">

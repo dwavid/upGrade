@@ -8,7 +8,7 @@
   z-index: 9;
   font-size: 1.5em; }
   .menu.overlay.sidebar .item:hover {
-    background: #efefef; }
+    background: black; }
     .menu.overlay.sidebar .item:hover .icon {
       color: #009a9a; }
 

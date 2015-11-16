@@ -1,3 +1,9 @@
-<h1>Hello</h1>
+<h1>Analytics</h1>
 
-<div>{{allGrades}}</div>
+<div ng-repeat="subject in allSubjects.data">
+    <h2>{{subject.name}}</h2>
+    <div ng-repeat="grade in allGrades.data">
+        <pre ng-if="grade.__metadata.descriptives.subject.value == subject.id">{{grade.__metadata.descriptives | json}}</pre>
+    </div>
+    <div ng-if="subject.grades == ''" class="ui red message">No grades available for this subject.</div>
+</div>
