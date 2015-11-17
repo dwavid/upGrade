@@ -180,9 +180,9 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
         $scope.getObject(object, subjectFilter)
         .success(function (data, response) {
             variable = data;
-            console.log(variable.data);
+            //console.log(variable.data);
             count = variable.data.length;
-            console.log(count);
+            //console.log(count);
         });
     };
     $scope.filteredGrades = '';
