@@ -16,6 +16,9 @@
   margin-right: auto;
   margin-left: auto; }
 
+.text-center {
+  text-align: center; }
+
 .header {
   background: #efefef;
   width: 100%;

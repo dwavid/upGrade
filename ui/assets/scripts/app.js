@@ -119,7 +119,6 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
             console.log($scope.quickEntry.data.percentage);
         }
     };
-    $scope.quickEntryPercentage();
 
     $scope.logQuickEntry = function () {
         console.log(angular.toJson($scope.quickEntry));
@@ -172,10 +171,13 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
             $scope.allGrades = data;
         });
 
-    //FILTER GRADES BY ATTRIBUTE(EX.'SUBJECT')
-    $scope.countGradesByAttribute = function(attr, attrID, variable, count) {
-        var subjectFilter = "[{'fieldName':'" + attr + "','operator':'in','value':'" + attrID + "'}]";
-        $scope.getObject('grades', subjectFilter)
+    //FILTER OBJECTS BY ATTRIBUTE(EX. GET 'GRADES' BY 'SUBJECT')
+    $scope.buildFilter = function(fieldName, operator, value) {
+        return "[{'fieldName':'" + fieldName + "','operator':'" + operator + "','value':'" + value + "'}]"
+    };
+    $scope.countObjectsByAttribute = function(object, fieldName, operator, value, variable, count) {
+        var subjectFilter = $scope.buildFilter(fieldName, operator, value);
+        $scope.getObject(object, subjectFilter)
         .success(function (data, response) {
             variable = data;
             console.log(variable.data);
@@ -185,7 +187,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     };
     $scope.filteredGrades = '';
     $scope.gradeCount = '';
-    $scope.countGradesByAttribute('assignment', 2, $scope.filteredGrades, $scope.gradeCount);
+    $scope.countObjectsByAttribute('grades', 'assignment', 'in', 2, $scope.filteredGrades, $scope.gradeCount);
 
     //POST AN OBJECT TO THE DATABASE
     $scope.postObject = function(name, object) {
