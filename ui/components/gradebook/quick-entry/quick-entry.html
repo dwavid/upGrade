@@ -48,6 +48,14 @@
         <div ng-show="quickEntry.data.score > quickEntry.assignment.total" class="help-warning">
             Whoa, nelly! Looks like the number you entered is higher than the total possible. Might want to double-check that...
         </div>
+        <div id="gradePercentage" class="ui statistic" ng-show="quickEntry.data.score">
+            <!--TODO Fix this! It's late, and for some reason, I can't get this to work in the controller, so I'm having to call the function in this ng-show...-->
+            <div>
+                {{quickEntryPercentage();}}
+            </div>
+            <div class="value">{{quickEntry.data.percentage}}%</div>
+            <div class="label">Student</div>
+        </div>
         <div class="field">
             <label for="comment">Comment</label>
             <div id="comment" class="ui large input fluid field">
