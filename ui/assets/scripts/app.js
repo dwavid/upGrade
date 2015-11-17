@@ -175,19 +175,17 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     $scope.buildFilter = function(fieldName, operator, value) {
         return "[{'fieldName':'" + fieldName + "','operator':'" + operator + "','value':'" + value + "'}]"
     };
-    $scope.countObjectsByAttribute = function(object, fieldName, operator, value, variable, count) {
+    $scope.countObjectsByAttribute = function(object, fieldName, operator, value) {
         var subjectFilter = $scope.buildFilter(fieldName, operator, value);
+        var objects = '';
         $scope.getObject(object, subjectFilter)
         .success(function (data, response) {
-            variable = data;
-            //console.log(variable.data);
-            count = variable.data.length;
-            //console.log(count);
+            objects = data;
+            console.log(objects.data);
+            return objects.data.length;
         });
     };
-    $scope.filteredGrades = '';
-    $scope.gradeCount = '';
-    $scope.countObjectsByAttribute('grades', 'assignment', 'in', 2, $scope.filteredGrades, $scope.gradeCount);
+    $scope.countObjectsByAttribute('grades', 'assignment', 'in', 2);
 
     //POST AN OBJECT TO THE DATABASE
     $scope.postObject = function(name, object) {
