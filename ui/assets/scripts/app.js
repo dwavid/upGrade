@@ -131,9 +131,6 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
         subject: '',
         description: ''
     };
-    $scope.logNewAssignment = function () {
-        console.log(angular.toJson($scope.newAssignment));
-    };
 
     //GET AN OBJECT FROM DATABASE
     $scope.getObject = function(name, filter, sort) {
@@ -175,17 +172,20 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     $scope.buildFilter = function(fieldName, operator, value) {
         return "[{'fieldName':'" + fieldName + "','operator':'" + operator + "','value':'" + value + "'}]"
     };
-    $scope.countObjectsByAttribute = function(object, fieldName, operator, value) {
+    $scope.filteredObject = function(object, fieldName, operator, value) {
         var subjectFilter = $scope.buildFilter(fieldName, operator, value);
-        var objects = '';
-        $scope.getObject(object, subjectFilter)
-        .success(function (data, response) {
-            objects = data;
-            console.log(objects.data);
-            return objects.data.length;
-        });
+        $scope.getObject('grades', subjectFilter)
+            .success(function(data, response) {
+                console.log(data);
+                $scope.filteredGrades = data;
+                $scope.countedGrades = $scope.filteredGrades.totalRows;
+                console.log($scope.countedGrades);
+            });
     };
-    $scope.countObjectsByAttribute('grades', 'assignment', 'in', 2);
+    $scope.filteredObject('grades', 'assignment', 'in', 5);
+    $scope.average1 = function(sum, total) {
+        return total * sum;
+    };
 
     //POST AN OBJECT TO THE DATABASE
     $scope.postObject = function(name, object) {
