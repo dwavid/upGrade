@@ -146,6 +146,11 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
         })
     };
 
+    //BUILD A FILTER TO USE IN A GETOBJECT()
+    $scope.buildFilter = function(fieldName, operator, value) {
+        return "[{'fieldName':'" + fieldName + "','operator':'" + operator + "','value':'" + value + "'}]"
+    };
+
     //SET VARIOUS OBJECTS (SUBJECTS, TYPES, ETC.)
     $scope.allSubjects = $scope.getObject('subjects')
         .success(function (data, response) {
@@ -169,23 +174,17 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
         });
 
     //FILTER OBJECTS BY ATTRIBUTE(EX. GET 'GRADES' BY 'SUBJECT')
-    $scope.buildFilter = function(fieldName, operator, value) {
-        return "[{'fieldName':'" + fieldName + "','operator':'" + operator + "','value':'" + value + "'}]"
-    };
     $scope.filteredObject = function(object, fieldName, operator, value) {
         var subjectFilter = $scope.buildFilter(fieldName, operator, value);
         $scope.getObject('grades', subjectFilter)
             .success(function(data, response) {
-                console.log(data);
                 $scope.filteredGrades = data;
+                console.log($scope.filteredGrades);
                 $scope.countedGrades = $scope.filteredGrades.totalRows;
                 console.log($scope.countedGrades);
             });
     };
     $scope.filteredObject('grades', 'assignment', 'in', 5);
-    $scope.average1 = function(sum, total) {
-        return total * sum;
-    };
 
     //POST AN OBJECT TO THE DATABASE
     $scope.postObject = function(name, object) {
