@@ -116,7 +116,6 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     $scope.quickEntryPercentage = function () {
         if ($scope.quickEntry.data.score) {
             $scope.quickEntry.data.percentage = (($scope.quickEntry.data.score / $scope.quickEntry.assignment.total) * 100).toFixed(0);
-            console.log($scope.quickEntry.data.percentage);
         }
     };
 
@@ -172,19 +171,68 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
         .success(function (data, response) {
             $scope.allGrades = data;
         });
-
     //FILTER OBJECTS BY ATTRIBUTE(EX. GET 'GRADES' BY 'SUBJECT')
-    $scope.filteredObject = function(object, fieldName, operator, value) {
-        var subjectFilter = $scope.buildFilter(fieldName, operator, value);
-        $scope.getObject('grades', subjectFilter)
-            .success(function(data, response) {
-                $scope.filteredGrades = data;
-                console.log($scope.filteredGrades);
-                $scope.countedGrades = $scope.filteredGrades.totalRows;
-                console.log($scope.countedGrades);
-            });
+    //$scope.filterGrades = function(fieldName, operator, value, object, count) {
+    //    var subjectFilter = $scope.buildFilter(fieldName, operator, value);
+    //    $scope.getObject('grades', subjectFilter)
+    //        .success(function(data, response) {
+    //            object = data;
+    //            console.log(object);
+    //            count = data.totalRows;
+    //            console.log(count);
+    //        });
+    //};
+    //$scope.filterGrades('assignment', 'in', 5, $scope.testObject, $scope.testCount);
+    //
+    //
+    //$scope.totalGrades = function(fieldName, operator, value, total) {
+    //    var subjectFilter = $scope.buildFilter(fieldName, operator, value);
+    //    var object = '';
+    //    total = 0;
+    //    $scope.getObject('grades', subjectFilter)
+    //        .success(function(data, response) {
+    //            object = data;
+    //            for (var i = 0; i < object.data.length; i++) {
+    //                total += object.data[i].percentage;
+    //            }
+    //            console.log(total);
+    //        });
+    //};
+    //$scope.testTotal = '';
+    //$scope.totalGrades('assignment', 'in', 5, $scope.testTotal);
+
+    //$scope.testTotal = '';
+    //$scope.testObject = '';
+    //$scope.testCount = '';
+    //$scope.testAverage = '';
+    $scope.quickEntryAverage = 0;
+    $scope.getAverage = function (assignment) {
+            var subjectFilter = $scope.buildFilter('assignment', 'in', assignment);
+            var total = 0;
+            var object = {};
+            var count = 0;
+            var average = 0;
+            $scope.getObject('grades', subjectFilter)
+                .success(function (data, response) {
+                    object = data;
+                    console.log(object);
+                    count = object.data.length;
+                    console.log(count);
+                    for (var i = 0; i < count; i++) {
+                        total += object.data[i].percentage;
+                    }
+                    console.log(total);
+                    average = total / count;
+                    console.log(average);
+                    //Makes sure we don't get 'NaN' in the UI by ensuring that the `average` variable isFinite
+                    if (isFinite(average)) {
+                        $scope.quickEntryAverage = average;
+                    } else {
+                        $scope.quickEntryAverage = 0;
+                    }
+                });
     };
-    $scope.filteredObject('grades', 'assignment', 'in', 5);
+    //$scope.getAverage(2);
 
     //POST AN OBJECT TO THE DATABASE
     $scope.postObject = function(name, object) {

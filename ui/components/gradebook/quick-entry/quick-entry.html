@@ -4,7 +4,7 @@
     </div>
     <div ng-repeat="subject in allSubjects.data">
         <!--<a href="#quick-entry">-->
-        <label for="{{subject.name}}-link" class="ui fluid large button">{{subject.name | titlecase}}</label>
+        <label for="{{subject.name}}-link" class="ui fluid large button">{{subject.name}}</label>
         <input id="{{subject.name}}-link"
                type="radio"
                style="display: none"
@@ -17,7 +17,7 @@
 <div class="page-center small container" ng-show="quickEntry.subject !== ''">
     <div class="intro">
         <h1>Enter grade</h1>
-        <span>{{quickEntry.subject.name | titlecase}} <button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></span>
+        <span>{{quickEntry.subject.name}} <button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></span>
     </div>
     <div class="ui form">
         <div class="field">
@@ -25,7 +25,8 @@
             <select id="assignment"
                     class="ui fluid selection dropdown huge input item"
                     ng-model="quickEntry.assignment"
-                    ng-options="assignment as assignment.title for assignment in allAssignments.data | filter:assignment.subject = quickEntry.subject.name">
+                    ng-options="assignment as assignment.title for assignment in allAssignments.data | filter:assignment.subject = quickEntry.subject.name"
+                    ng-click="getAverage(quickEntry.assignment.id)">
                 <option value="">Select assignment</option>
             </select>
         </div>
@@ -50,7 +51,7 @@
         </div>
         <div class="ui two column grid">
             <div class="column text-center">
-                <div id="gradePercentage" class="ui statistic" ng-show="quickEntry.data.score">
+                <div id="gradePercentage" ng-class="quickEntry.data.percentage >= quickEntryAverage ? 'ui teal statistic' : 'ui yellow statistic'">
                     <!--TODO Fix this! It's late, and for some reason, I can't get this to work in the controller, so I'm having to call the function in this ng-show...-->
                     {{quickEntryPercentage();}}
                     <div class="value">{{quickEntry.data.percentage}}%</div>
@@ -59,7 +60,7 @@
             </div>
             <div class="column text-center">
                 <div class="ui statistic">
-                    <div class="value">87%</div>
+                    <div class="value">{{quickEntryAverage}}%</div>
                     <div class="label">Class</div>
                 </div>
             </div>
