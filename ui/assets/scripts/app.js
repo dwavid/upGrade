@@ -79,6 +79,12 @@ app.config(['$routeProvider', function($routeProvider) {
             helpUrl: ''
         })
 
+        .when('/new-student', {
+            templateUrl: 'components/students/new-student.html',
+            title: 'New Student',
+            helpUrl: ''
+        })
+
         .otherwise({
             redirectTo: '/quick-links'
         });
