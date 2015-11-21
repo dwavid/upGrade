@@ -119,20 +119,23 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
             assignment: ''
         }
     };
+    $scope.clearQuickEntry = function() {
+        $scope.quickEntry = '';
+        $scope.clearQuickEntryAverage();
+    };
     $scope.newStudent =  {
         fName: '',
         lName: '',
         studentID: '',
         gpa: ''
     };
+    $scope.clearNewStudent = function() {
+        $scope.newStudent = '';
+    };
     $scope.quickEntryPercentage = function () {
         if ($scope.quickEntry.data.score) {
             $scope.quickEntry.data.percentage = (($scope.quickEntry.data.score / $scope.quickEntry.assignment.total) * 100).toFixed(0);
         }
-    };
-
-    $scope.logQuickEntry = function () {
-        console.log(angular.toJson($scope.quickEntry));
     };
     $scope.newAssignment = {
         title: '',
@@ -141,6 +144,9 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
         due: '',
         subject: '',
         description: ''
+    };
+    $scope.clearNewAssignment = function() {
+        $scope.newAssignment = '';
     };
 
     //GET AN OBJECT FROM DATABASE
@@ -197,15 +203,15 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
             $scope.getObject('grades', subjectFilter)
                 .success(function (data, response) {
                     object = data;
-                    console.log(object);
+                    //console.log(object);
                     count = object.data.length;
-                    console.log(count);
+                    //console.log(count);
                     for (var i = 0; i < count; i++) {
                         total += object.data[i].percentage;
                     }
-                    console.log(total);
+                    //console.log(total);
                     average = (total / count).toFixed(0);
-                    console.log(average);
+                    //console.log(average);
                     //Makes sure we don't get 'NaN' in the UI by ensuring that the `average` variable isFinite
                     if (isFinite(average)) {
                         $scope.quickEntryAverage = average;
@@ -213,6 +219,9 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
                         $scope.quickEntryAverage = 0;
                     }
                 });
+    };
+    $scope.clearQuickEntryAverage = function() {
+        $scope.quickEntryAverage = '';
     };
     //$scope.getAverage(2);
 
@@ -226,14 +235,17 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     };
     $scope.postAssignment = function () {
         $scope.postObject('assignments', $scope.newAssignment);
+        $scope.clearNewAssignment();
     };
     $scope.postGrade = function() {
         $scope.quickEntry.data.subject = $scope.quickEntry.subject.id;
         $scope.quickEntry.data.student = $scope.quickEntry.student.id;
         $scope.quickEntry.data.assignment = $scope.quickEntry.assignment.id;
         $scope.postObject('grades', $scope.quickEntry.data);
+        $scope.clearQuickEntry();
     };
     $scope.postStudent = function () {
         $scope.postObject('students', $scope.newStudent);
+        $scope.clearNewStudent();
     };
 }]);

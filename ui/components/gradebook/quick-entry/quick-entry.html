@@ -1,25 +1,17 @@
-<div class="page-center small container" ng-show="quickEntry.subject === ''">
-    <div class="intro">
-        <h1>Select class</h1>
-    </div>
-    <div ng-repeat="subject in allSubjects.data">
-        <!--<a href="#quick-entry">-->
-        <label for="{{subject.name}}-link" class="ui fluid large button">{{subject.name}}</label>
-        <input id="{{subject.name}}-link"
-               type="radio"
-               style="display: none"
-               ng-model="quickEntry.subject"
-               ng-value="subject"
-               ng-click="quickEntry.assignment = ''"/>
-        <br />
-    </div>
-</div>
-<div class="page-center small container" ng-show="quickEntry.subject !== ''">
+<div class="page-center small container">
     <div class="intro">
         <h1>Enter grade</h1>
-        <span>{{quickEntry.subject.name}} <button ng-click="quickEntry.subject = ''" class="ui mini button">Change Subject</button></span>
     </div>
     <div class="ui form">
+        <div class="field">
+            <label for="subject">Subject</label>
+            <select id="subject"
+                    class="ui fluid selection dropdown huge input item"
+                    ng-model="quickEntry.subject"
+                    ng-options="subject as subject.name for subject in allSubjects.data">
+                <option value="">Select subject</option>
+            </select>
+        </div>
         <div class="field">
             <label for="assignment">Assignment</label>
             <select id="assignment"
@@ -73,7 +65,7 @@
     </div>
     <br />
     <div class="ui fluid large buttons">
-        <button class="ui button">CANCEL</button>
+        <button class="ui button" ng-click="clearQuickEntry()">CANCEL</button>
         <div class="or"></div>
         <button class="ui teal button" ng-click="postGrade();getAllObjects()">SAVE</button>
     </div>
