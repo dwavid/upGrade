@@ -184,6 +184,31 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
             $scope.allGrades = data;
         });
 
+    //Get all DB objects
+    //TODO get rid of this garbage. I don't know why I have to do this to get the data to update without a refresh
+    $scope.getAllObjects = function() {
+        $scope.getObject('subjects')
+            .success(function (data, response) {
+                $scope.allSubjects = data;
+            });
+        $scope.getObject('types')
+            .success(function (data, response) {
+                $scope.allTypes = data;
+            });
+        $scope.getObject('students')
+            .success(function (data, response) {
+                $scope.allStudents = data;
+            });
+        $scope.getObject('assignments')
+            .success(function (data, response) {
+                $scope.allAssignments = data;
+            });
+        $scope.getObject('grades')
+            .success(function (data, response) {
+                $scope.allGrades = data;
+            });
+    };
+
     $scope.quickEntryAverage = 0;
     $scope.getAverage = function (assignment) {
             var subjectFilter = $scope.buildFilter('assignment', 'in', assignment);
