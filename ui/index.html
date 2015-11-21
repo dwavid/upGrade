@@ -52,35 +52,7 @@
                         <button class="ui teal button" onclick="$('#helpModal').modal('hide');">Got it</button>
                     </div>
                 </div>
-
-                <!--TEST OUT DB GETS-->
-                <!--<div class="ui four column grid" style="min-height: 100px;">-->
-                    <!--<div class="column">-->
-                        <!--<button class="ui button" ng-click="showSubjects = true">Subjects</button>-->
-                        <!--<ul ng-show="showSubjects">-->
-                            <!--<li ng-repeat="subject in allSubjects.data">{{subject.name}}</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                    <!--<div class="column">-->
-                        <!--<button class="ui button" ng-click="showTypes = true">Types</button>-->
-                        <!--<ul ng-show="showTypes">-->
-                            <!--<li ng-repeat="type in allTypes.data">{{type.name}}</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                    <!--<div class="column">-->
-                        <!--<button class="ui button" ng-click="showStudents = true">Students</button>-->
-                        <!--<ul ng-show="showStudents">-->
-                            <!--<li ng-repeat="student in allStudents.data">{{student.fName + ' ' + student.lName}}</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                    <!--<div class="column">-->
-                        <!--<button class="ui button" ng-click="showAssignments = true">Assignments</button>-->
-                        <!--<ul ng-show="showAssignments">-->
-                            <!--<li ng-repeat="assignment in allAssignments.data">{{assignment.title}}</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <div ng-view></div>
+                <div ng-view onload="getAllObjects()"></div>
             </div>
         </div>
     </div>

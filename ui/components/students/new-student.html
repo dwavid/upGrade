@@ -1,31 +1,21 @@
-<div class="page-center small container">
-    <div class="intro">
-        <h1>New Student</h1>
+<div class="ui form">
+    <div class="field">
+        <label for="fName">First Name</label>
+        <input id="fName"
+               class="ui fluid huge input item"
+               ng-model="newStudent.fName"/>
     </div>
-    <div class="ui form">
-        <div class="field">
-            <label for="fName">First Name</label>
-            <input id="fName"
-                   class="ui fluid huge input item"
-                   ng-model="newStudent.fName"/>
-        </div>
-        <div class="field">
-            <label for="lName">Last Name</label>
-            <input id="lName"
-                   class="ui fluid huge input item"
-                   ng-model="newStudent.lName"/>
-        </div>
-        <div class="field">
-            <label for="studentID">Student ID</label>
-            <input id="studentID"
-                   class="ui fluid huge input item"
-                   ng-model="newStudent.studentID"/>
-        </div>
+    <div class="field">
+        <label for="lName">Last Name</label>
+        <input id="lName"
+               class="ui fluid huge input item"
+               ng-model="newStudent.lName"/>
     </div>
-    <br/>
-    <div class="ui fluid huge buttons">
-        <button class="ui button">CANCEL</button>
-        <div class="or"></div>
-        <button class="ui teal button" ng-click="postStudent(); getAllObjects();">SAVE</button>
+    <div class="field">
+        <label for="studentID">Student ID</label>
+        <input id="studentID"
+               class="ui fluid huge input item"
+               ng-model="newStudent.studentID"/>
     </div>
 </div>
+<br/>

@@ -162,28 +162,6 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
         return "[{'fieldName':'" + fieldName + "','operator':'" + operator + "','value':'" + value + "'}]"
     };
 
-    //SET VARIOUS OBJECTS (SUBJECTS, TYPES, ETC.)
-    $scope.allSubjects = $scope.getObject('subjects')
-        .success(function (data, response) {
-            $scope.allSubjects = data;
-        });
-    $scope.allTypes = $scope.getObject('types')
-        .success(function (data, response) {
-            $scope.allTypes = data;
-        });
-    $scope.allStudents = $scope.getObject('students')
-        .success(function (data, response) {
-            $scope.allStudents = data;
-        });
-    $scope.allAssignments = $scope.getObject('assignments')
-        .success(function (data, response) {
-            $scope.allAssignments = data;
-        });
-    $scope.allGrades = $scope.getObject('grades')
-        .success(function (data, response) {
-            $scope.allGrades = data;
-        });
-
     //Get all DB objects
     //TODO get rid of this garbage. I don't know why I have to do this to get the data to update without a refresh
     $scope.getAllObjects = function() {

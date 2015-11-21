@@ -1,55 +1,44 @@
-<div class="page-center small container">
-    <div class="intro">
-        <h1>New Assignment</h1>
+<div class="ui form">
+    <div class="field">
+        <label for="type">Type</label>
+        <select id="type"
+                class="ui fluid selection dropdown huge input item"
+                ng-model="newAssignment.type"
+                ng-options="type.name as (type.name | uppercase) for type in allTypes.data">
+            <option value=''>Select type</option>
+        </select>
     </div>
-    <div class="ui form">
-        <div class="field">
-            <label for="type">Type</label>
-            <select id="type"
-                    class="ui fluid selection dropdown huge input item"
-                    ng-model="newAssignment.type"
-                    ng-options="type.name as (type.name | uppercase) for type in allTypes.data">
-                <option value=''>Select type</option>
-            </select>
-        </div>
-        <div class="field">
-            <label for="subject">Subject</label>
-            <select id="subject"
-                    class="ui fluid selection dropdown huge input item"
-                    ng-model="newAssignment.subject"
-                    ng-options="(subject.name) as (subject.name | uppercase) for subject in allSubjects.data">
-                <option value=''>Select subject</option>
-            </select>
-        </div>
-        <div class="field">
-            <label for="subject">Title</label>
-            <div class="ui fluid huge input item">
-                <input id="Title" type="text" placeholder="Title" ng-model="newAssignment.title" />
-            </div>
-        </div>
-        <div class="field">
-            <label for="subject">Total</label>
-            <div class="ui fluid huge input item">
-                <input type="number" placeholder="Total" ng-model="newAssignment.total" />
-            </div>
-        </div>
-        <div class="field">
-            <label for="subject">Due date</label>
-            <div class="ui fluid huge input item">
-                <input type="date" placeholder="Due date" ng-model="newAssignment.dueDate" />
-            </div>
-        </div>
-        <div class="field">
-            <label for="subject">Description</label>
-            <div class="ui huge input fluid field">
-                <textarea rows="2" placeholder="Description" ng-model="newAssignment.description"></textarea>
-            </div>
+    <div class="field">
+        <label for="subject">Subject</label>
+        <select id="subject"
+                class="ui fluid selection dropdown huge input item"
+                ng-model="newAssignment.subject"
+                ng-options="(subject.name) as (subject.name | uppercase) for subject in allSubjects.data">
+            <option value=''>Select subject</option>
+        </select>
+    </div>
+    <div class="field">
+        <label for="subject">Title</label>
+        <div class="ui fluid huge input item">
+            <input id="Title" type="text" placeholder="Title" ng-model="newAssignment.title" />
         </div>
     </div>
-    <br/>
-    <div class="ui fluid huge buttons">
-        <button class="ui button">CANCEL</button>
-        <div class="or"></div>
-        <button class="ui teal button" ng-click="postAssignment(); getAllObjects()">SAVE</button>
+    <div class="field">
+        <label for="subject">Total</label>
+        <div class="ui fluid huge input item">
+            <input type="number" placeholder="Total" ng-model="newAssignment.total" />
+        </div>
+    </div>
+    <div class="field">
+        <label for="subject">Due date</label>
+        <div class="ui fluid huge input item">
+            <input type="date" placeholder="Due date" ng-model="newAssignment.dueDate" />
+        </div>
+    </div>
+    <div class="field">
+        <label for="subject">Description</label>
+        <div class="ui huge input fluid field">
+            <textarea rows="2" placeholder="Description" ng-model="newAssignment.description"></textarea>
+        </div>
     </div>
 </div>

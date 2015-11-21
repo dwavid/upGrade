@@ -2,7 +2,7 @@
 <p>
     Create, view, update, and delete assignments all from this page.
 </p>
-<a href="#new-assignment"><div class="ui teal button">+ New Assignment</div></a>
+<a href="" onclick="$('#newAssignmentModal').modal({blurring:true}).modal('show');"><div class="ui teal button">+ New Assignment</div></a>
 <div ng-repeat="subject in allSubjects.data">
     <br />
     <h2>{{subject.name | titlecase}}&nbsp;</h2>
@@ -24,3 +24,14 @@
     </table>
 </div>
 <br />
+<div class="ui small modal" id="newAssignmentModal">
+    <div class="header">New Assignment</div>
+    <div class="content" ng-include="'components/gradebook/assignments/new-assignment.html'"></div>
+    <div class="actions">
+        <div class="ui fluid huge buttons">
+            <button class="ui button" onclick="$('#newAssignmentModal').modal('hide');">CANCEL</button>
+            <div class="or"></div>
+            <button class="ui teal button" ng-click="postAssignment(); getAllObjects();" onclick="$('#newAssignmentModal').modal('hide');">SAVE</button>
+        </div>
+    </div>
+</div>

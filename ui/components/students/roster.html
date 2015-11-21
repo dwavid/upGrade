@@ -2,7 +2,7 @@
 <p>
     View student information, performance, and progress from one page. Click any student to see more detail.
 </p>
-<a href="#new-student"><div class="ui teal button">+ New Student</div></a>
+<a href="" onclick="$('#newStudentModal').modal({blurring:true}).modal('show');"><div class="ui teal button">+ New Student</div></a>
 <table class="ui unstackable padded single line table">
     <thead>
         <tr>
@@ -19,3 +19,14 @@
         </tr>
     </tbody>
 </table>
+<div class="ui small modal" id="newStudentModal">
+    <div class="header">New Assignment</div>
+    <div class="content" ng-include="'components/students/new-student.html'"></div>
+    <div class="actions">
+        <div class="ui fluid huge buttons">
+            <button class="ui button" onclick="$('#newStudentModal').modal('hide');">CANCEL</button>
+            <div class="or"></div>
+            <button class="ui teal button" ng-click="postStudent(); getAllObjects();" onclick="$('#newStudentModal').modal('hide');">SAVE</button>
+        </div>
+    </div>
+</div>
