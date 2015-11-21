@@ -1,9 +1,17 @@
 <h1>Analytics</h1>
-
 <div ng-repeat="subject in allSubjects.data">
     <h2>{{subject.name}}</h2>
     <div ng-repeat="grade in allGrades.data">
         <pre ng-if="grade.subject == subject.id">{{grade | json}}</pre>
     </div>
     <div ng-if="subject.grades == ''" class="ui red message">No grades available for this subject.</div>
+</div>
+<div ng-repeat="student in allStudents.data">
+    <h1>{{student.fName + " " + student.lName}}</h1>
+    <div ng-repeat="grade in allGrades.data">
+        <div ng-if="grade.student == student.id">
+            <div><b>{{grade.__metadata.descriptives.assignment.label}}</b></div>
+            <div>{{grade.percentage}}</div>
+        </div>
+    </div>
 </div>
