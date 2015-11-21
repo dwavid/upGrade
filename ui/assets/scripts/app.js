@@ -93,7 +93,7 @@ app.config(['$routeProvider', function($routeProvider) {
 
 app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 'Backand', function($scope, $rootScope, $location, $http, Backand) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {  //using success callback of route change
-        if(current.$$route && current.$$route.title) { //Checking whether $$route is initialised or not
+        if(current.$$route && current.$$route.title) { //Checking whether $$route is initialized or not
             $rootScope.title = current.$$route.title;
             $rootScope.helpUrl = current.$$route.helpUrl;
         }
@@ -152,6 +152,13 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     $scope.newSubject = {
         name: ''
     };
+
+    //***********************************************
+    //
+    //THIS IS ALL DATABASE INTERACTION STUFF
+    //
+    //***********************************************
+    //TODO make this stuff update dynamically! It all requires a page refresh for some reason. Except it works in a few screens... it's weird
 
     //GET AN OBJECT FROM DATABASE
     $scope.getObject = function(name, filter, sort) {
@@ -255,4 +262,10 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     $scope.postSubject = function() {
         $scope.postObject('subjects', $scope.newSubject);
     };
+    $scope.deleteObject = function(object, id) {
+        return $http ({
+            method: 'DELETE',
+            url: Backand.getApiUrl() + '/1/objects/' + object + '/' + id
+        });
+    }
 }]);

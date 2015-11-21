@@ -2,6 +2,7 @@
 <p>
     Create, view, update, and delete subjects all from this page.
 </p>
+<button class="ui button" ng-click="getAllObjects()">Refresh</button>
 <a href="" onclick="$('#newSubjectModal').modal({blurring:true}).modal('show');"><div class="ui teal button">+ New Subject</div></a>
 <br/>
 <br/>
@@ -10,6 +11,9 @@
         <div class="card">
             <div class="content">
                 <h3>{{subject.name}}</h3>
+                <button class="ui red button" ng-click="deleteObject('subjects', subject.id); getAllObjects();">
+                    <i class="trash can icon"></i>
+                </button>
             </div>
         </div>
     </div>
