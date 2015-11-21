@@ -51,8 +51,7 @@
         </div>
         <div class="ui two column grid">
             <div class="column text-center">
-                <div id="gradePercentage" ng-class="quickEntry.data.percentage >= quickEntryAverage ? 'ui teal statistic' : 'ui yellow statistic'">
-                    <!--TODO Fix this! It's late, and for some reason, I can't get this to work in the controller, so I'm having to call the function in this ng-show...-->
+                <div id="gradePercentage" ng-class="(quickEntry.data.percentage >= quickEntryAverage) || quickEntry.data.percentage >= 100 ? 'ui teal statistic' : 'ui yellow statistic'">
                     {{quickEntryPercentage();}}
                     <div class="value">{{quickEntry.data.percentage}}%</div>
                     <div class="label">Student</div>

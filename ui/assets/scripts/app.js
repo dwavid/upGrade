@@ -201,7 +201,7 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
                         total += object.data[i].percentage;
                     }
                     console.log(total);
-                    average = total / count;
+                    average = (total / count).toFixed(0);
                     console.log(average);
                     //Makes sure we don't get 'NaN' in the UI by ensuring that the `average` variable isFinite
                     if (isFinite(average)) {
