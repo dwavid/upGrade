@@ -79,9 +79,9 @@ app.config(['$routeProvider', function($routeProvider) {
             helpUrl: ''
         })
 
-        .when('/new-student', {
-            templateUrl: 'components/students/new-student.html',
-            title: 'New Student',
+        .when('/subjects', {
+            templateUrl: 'components/subjects/subject-list.html',
+            title: 'Subjects',
             helpUrl: ''
         })
 
@@ -147,6 +147,10 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     };
     $scope.clearNewAssignment = function() {
         $scope.newAssignment = '';
+    };
+
+    $scope.newSubject = {
+        name: ''
     };
 
     //GET AN OBJECT FROM DATABASE
@@ -247,5 +251,8 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     $scope.postStudent = function () {
         $scope.postObject('students', $scope.newStudent);
         $scope.clearNewStudent();
+    };
+    $scope.postSubject = function() {
+        $scope.postObject('subjects', $scope.newSubject);
     };
 }]);

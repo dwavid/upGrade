@@ -1,0 +1,28 @@
+<h1>Subjects</h1>
+<p>
+    Create, view, update, and delete subjects all from this page.
+</p>
+<a href="" onclick="$('#newSubjectModal').modal({blurring:true}).modal('show');"><div class="ui teal button">+ New Subject</div></a>
+<br/>
+<br/>
+<div ng-repeat="subject in allSubjects.data">
+    <div class="ui cards">
+        <div class="card">
+            <div class="content">
+                <h3>{{subject.name}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="ui small modal" id="newSubjectModal">
+    <div class="header">New Subject</div>
+    <div class="content" ng-include="'components/subjects/new-subject.html'"></div>
+    <div class="actions">
+        <div class="ui fluid huge buttons">
+            <button class="ui button" onclick="$('#newSubjectModal').modal('hide');">CANCEL</button>
+            <div class="or"></div>
+            <button class="ui teal button" ng-click="postSubject(); getAllObjects();" onclick="$('#newSubjectModal').modal('hide');">SAVE</button>
+        </div>
+    </div>
+</div>
