@@ -14,13 +14,13 @@
         </div>
         <div class="field">
             <label for="assignment">Assignment</label>
-            <select id="assignment"
-                    class="ui fluid selection dropdown huge input item"
-                    ng-model="quickEntry.assignment"
-                    ng-options="assignment as assignment.title for assignment in allAssignments.data | filter:assignment.subject = quickEntry.subject.name"
-                    ng-click="getAverage(quickEntry.assignment.id)">
-                <option value="">Select assignment</option>
-            </select>
+                <select id="assignment"
+                        class="ui fluid selection dropdown huge input item"
+                        ng-model="quickEntry.assignment"
+                        ng-options="assignment as assignment.title for assignment in allAssignments.data | filter:assignment.subject = quickEntry.subject.name"
+                        ng-change="getAverage(quickEntry.assignment.id)">
+                    <option value="">Select assignment</option>
+                </select>
         </div>
         <div class="field">
             <label for="student">Student</label>
