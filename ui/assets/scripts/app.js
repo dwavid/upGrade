@@ -205,31 +205,38 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     };
 
     $scope.quickEntryAverage = 0;
-    $scope.getAverage = function (assignment) {
-            var subjectFilter = $scope.buildFilter('assignment', 'in', assignment);
-            var total = 0;
-            var object = {};
-            var count = 0;
-            var average = 0;
-            $scope.getObject('grades', subjectFilter)
-                .success(function (data, response) {
-                    object = data;
-                    //console.log(object);
-                    count = object.data.length;
-                    //console.log(count);
-                    for (var i = 0; i < count; i++) {
-                        total += object.data[i].percentage;
-                    }
-                    //console.log(total);
-                    average = (total / count).toFixed(0);
-                    //console.log(average);
-                    //Makes sure we don't get 'NaN' in the UI by ensuring that the `average` variable isFinite
-                    if (isFinite(average)) {
-                        $scope.quickEntryAverage = average;
-                    } else {
-                        $scope.quickEntryAverage = 0;
-                    }
-                });
+    $scope.getAverage = function (assignment, type) {
+        var filter = '';
+        if (type = 'assignment') {
+            filter = $scope.buildFilter('assignment', 'in', assignment);
+        } else if (type = 'student') {
+            filter = $scope.buildFilter('student', 'in', assignment);
+        } else if (type = 'subject') {
+            filter = $scope.buildFilter('subject', 'in', assignment);
+        }
+        var total = 0;
+        var object = {};
+        var count = 0;
+        var average = 0;
+        $scope.getObject('grades', filter)
+            .success(function (data, response) {
+                object = data;
+                //console.log(object);
+                count = object.data.length;
+                //console.log(count);
+                for (var i = 0; i < count; i++) {
+                    total += object.data[i].percentage;
+                }
+                //console.log(total);
+                average = (total / count).toFixed(0);
+                //console.log(average);
+                //Makes sure we don't get 'NaN' in the UI by ensuring that the `average` variable isFinite
+                if (isFinite(average)) {
+                    $scope.quickEntryAverage = average;
+                } else {
+                    $scope.quickEntryAverage = 0;
+                }
+            });
     };
     $scope.clearQuickEntryAverage = function() {
         $scope.quickEntryAverage = '';

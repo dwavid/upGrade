@@ -18,7 +18,7 @@
                         class="ui fluid selection dropdown huge input item"
                         ng-model="quickEntry.assignment"
                         ng-options="assignment as assignment.title for assignment in allAssignments.data | filter:assignment.subject = quickEntry.subject.name"
-                        ng-change="getAverage(quickEntry.assignment.id)">
+                        ng-change="getAverage(quickEntry.assignment.id, 'assignment')">
                     <option value="">Select assignment</option>
                 </select>
         </div>
