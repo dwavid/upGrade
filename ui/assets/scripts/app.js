@@ -207,11 +207,11 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     $scope.quickEntryAverage = 0;
     $scope.getAverage = function (assignment, type) {
         var filter = '';
-        if (type = 'assignment') {
+        if (type == 'assignment') {
             filter = $scope.buildFilter('assignment', 'in', assignment);
-        } else if (type = 'student') {
+        } else if (type == 'student') {
             filter = $scope.buildFilter('student', 'in', assignment);
-        } else if (type = 'subject') {
+        } else if (type == 'subject') {
             filter = $scope.buildFilter('subject', 'in', assignment);
         }
         var total = 0;
