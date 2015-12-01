@@ -205,14 +205,14 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     };
 
     $scope.quickEntryAverage = 0;
-    $scope.getAverage = function (assignment, type) {
+    $scope.getAverage = function (itemID, type) {
         var filter = '';
         if (type == 'assignment') {
-            filter = $scope.buildFilter('assignment', 'in', assignment);
+            filter = $scope.buildFilter('assignment', 'in', itemID);
         } else if (type == 'student') {
-            filter = $scope.buildFilter('student', 'in', assignment);
+            filter = $scope.buildFilter('student', 'in', itemID);
         } else if (type == 'subject') {
-            filter = $scope.buildFilter('subject', 'in', assignment);
+            filter = $scope.buildFilter('subject', 'in', itemID);
         }
         var total = 0;
         var object = {};
