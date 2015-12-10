@@ -37,6 +37,24 @@ app.filter('titlecase', function() {
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
 
+        .when('/login', {
+            templateUrl: 'components/auth/login.html',
+            title: 'Log In',
+            helpUrl: ''
+        })
+
+        .when('/recover', {
+            templateUrl: 'components/auth/recover.html',
+            title: 'Recover',
+            helpUrl: ''
+        })
+
+        .when('/register', {
+            templateUrl: 'components/auth/register.html',
+            title: 'Register',
+            helpUrl: ''
+        })
+
         .when('/quick-entry', {
             templateUrl: 'components/gradebook/quick-entry/quick-entry.html',
             title: 'Quick Entry',
@@ -274,5 +292,37 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
             method: 'DELETE',
             url: Backand.getApiUrl() + '/1/objects/' + object + '/' + id
         });
-    }
+    };
+    $scope.registerUser = function(user) {
+        return $http({
+            method: 'POST',
+            url: Backand.getApiUrl() + '/1/user',
+            data: angular.toJson(user)
+        });
+        //return $http ({
+        //    method: 'POST',
+        //    url: Backand.getApiUrl() + '/1/user',
+        //    params: {
+        //        name: 'Create My App User',
+        //        parameters: {}
+        //    },
+        //    data: {
+        //        email: 'email@example.com',
+        //        firstName: 'text',
+        //        lastName: 'text',
+        //        role: 'User',
+        //        password: 'password',
+        //        confirmPassword: 'password'
+        //    }
+        //});
+    };
+    //$scope.newUser = {
+    //    firstName: 'Aziz',
+    //    lastName: 'Ansari',
+    //    email: 'azizAnsari@example.com',
+    //    role: 'User',
+    //    password: 'password',
+    //    confirmPassword: 'password'
+    //};
+    //$scope.registerUser($scope.newUser)
 }]);

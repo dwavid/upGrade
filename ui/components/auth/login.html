@@ -1,0 +1,30 @@
+<div class="page-center small container">
+    <div class="intro">
+        <h1>Log In | {{project.application}}</h1>
+    </div>
+    <div class="ui form">
+        <div class="field">
+            <label for="username">Username</label>
+            <input id="username"
+                   type="text"
+                   class="ui fluid huge input item"
+                   ng-model="loginUser.username">
+        </div>
+        <div class="field">
+            <label for="password">Password</label>
+            <input id="password"
+                   type="password"
+                   class="ui fluid huge input item"
+                   ng-model="loginUser.password">
+        </div>
+    </div>
+    <br>
+    <button class="ui teal huge fluid button">Log In</button>
+    <br>
+    <p>
+        <a href="#recover">Forgot password?</a>
+    </p>
+    <p>
+        Don't have an account? <a href="#register">Sign up</a> for one!
+    </p>
+</div>

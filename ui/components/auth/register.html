@@ -1,0 +1,48 @@
+<div class="page-center small container">
+    <div class="intro">
+        <h1>Register | {{project.application}}</h1>
+    </div>
+    <div class="ui form">
+        <div class="field">
+            <label for="firstName">First Name</label>
+            <input id="firstName"
+                   type="text"
+                   class="ui fluid huge input item"
+                   ng-model="newUser.firstName">
+        </div>
+        <div class="field">
+            <label for="lastName">Last Name</label>
+            <input id="lastName"
+                   type="text"
+                   class="ui fluid huge input item"
+                   ng-model="newUser.lastName">
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <input id="email"
+                   type="email"
+                   class="ui fluid huge input item"
+                   ng-model="newUser.email">
+        </div>
+        <div class="field">
+            <label for="password">Password</label>
+            <input id="password"
+                   type="password"
+                   class="ui fluid huge input item"
+                   ng-model="newUser.password">
+        </div>
+        <div class="field">
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword"
+                   type="password"
+                   class="ui fluid huge input item"
+                   ng-model="newUser.confirmPassword">
+        </div>
+    </div>
+    <br>
+    <button class="ui huge fluid teal button">Register</button>
+    <br>
+    <p>
+        Already have an account? <a href="#login">Sign in</a>!
+    </p>
+</div>
