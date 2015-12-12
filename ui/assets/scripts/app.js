@@ -296,8 +296,14 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
     $scope.registerUser = function(user) {
         return $http({
             method: 'POST',
-            url: Backand.getApiUrl() + '/1/user',
+            url: Backand.getApiUrl() + '/1/user/signup',
+            headers: {
+                'SignUpToken': '11b29a4f-d1aa-4212-ab7b-f5006dc9ae35'
+            },
             data: angular.toJson(user)
+        }).success(function(){
+            $scope.registrationSuccess = true;
+            $location.path('/quick-links');
         });
         //return $http ({
         //    method: 'POST',
@@ -316,13 +322,13 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
         //    }
         //});
     };
-    //$scope.newUser = {
-    //    firstName: 'Aziz',
-    //    lastName: 'Ansari',
-    //    email: 'azizAnsari@example.com',
-    //    role: 'User',
-    //    password: 'password',
-    //    confirmPassword: 'password'
-    //};
-    //$scope.registerUser($scope.newUser)
+    $scope.newUser = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        role: 'User',
+        password: '',
+        confirmPassword: ''
+    };
+    //$scope.registerUser($scope.newUser, '11b29a4f-d1aa-4212-ab7b-f5006dc9ae35')
 }]);
