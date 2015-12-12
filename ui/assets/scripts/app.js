@@ -305,22 +305,6 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
             $scope.registrationSuccess = true;
             $location.path('/quick-links');
         });
-        //return $http ({
-        //    method: 'POST',
-        //    url: Backand.getApiUrl() + '/1/user',
-        //    params: {
-        //        name: 'Create My App User',
-        //        parameters: {}
-        //    },
-        //    data: {
-        //        email: 'email@example.com',
-        //        firstName: 'text',
-        //        lastName: 'text',
-        //        role: 'User',
-        //        password: 'password',
-        //        confirmPassword: 'password'
-        //    }
-        //});
     };
     $scope.newUser = {
         firstName: '',
