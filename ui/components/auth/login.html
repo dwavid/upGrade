@@ -19,8 +19,11 @@
         </div>
     </div>
     <br>
-    <button class="ui teal huge fluid button">Log In</button>
+    <button class="ui teal huge fluid button" ng-click="signIn();">Log In</button>
     <br>
+    <div ng-show="loginError != ''" class="help-warning">
+         {{loginError}}
+    </div>
     <p>
         <a href="#recover">Forgot password?</a>
     </p>

@@ -104,7 +104,7 @@ app.config(['$routeProvider', function($routeProvider) {
         })
 
         .otherwise({
-            redirectTo: '/quick-links'
+            redirectTo: '/login'
         });
 
 }]);
@@ -315,4 +315,21 @@ app.controller('MainController', ['$scope', '$rootScope', '$location', '$http', 
         confirmPassword: ''
     };
     //$scope.registerUser($scope.newUser, '11b29a4f-d1aa-4212-ab7b-f5006dc9ae35')
+    $scope.username = '';
+    $scope.password = '';
+    $scope.loginError = '';
+    $scope.signIn = function() {
+        Backand.setAppName('upgrade');
+        Backand.signin($scope.username, $scope.password, 'upgrade')
+            .then(
+                function () {
+                    $location.path('/quick-links');
+                    $scope.loginError = '';
+                },
+                function (data, status, headers, config) {
+                    console.log(data);
+                    $scope.loginError = data && data.error_description || 'Unknown error from server';
+                }
+            );
+    };
 }]);
